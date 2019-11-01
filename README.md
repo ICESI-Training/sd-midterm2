@@ -40,4 +40,27 @@ For this exam you should redesing the application developed in midterm 1 into a 
 6. El informe debe publicarse en un repositorio de github el cual debe ser un fork de https://github.com/ICESI-Training/sd-midterm2 y para la entrega deberá hacer un Pull Request (PR) al upstream (10%). Tenga en cuenta que el repositorio debe contener todos los archivos necesarios para el despliegue.
 7. Documente algunos de los problemas encontrados y las acciones efectuadas para su solución (10%).
 
+---
+
+Backend: Node
+Database: "Firebase"
+CI: Travis
+
+https://scotch.io/tutorials/building-and-securing-a-modern-backend-api
+
+~~~
+npm init
+~~~
+
+~~~
+npm install express express-jwt auth0-api-jwt-rsa-validation --save
+~~~
+
+~~~
+node server
+~~~
+
+~~~
+localhost:8080/movies
+~~~
 
