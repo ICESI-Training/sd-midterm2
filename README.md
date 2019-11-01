@@ -43,7 +43,9 @@ For this exam you should redesing the application developed in midterm 1 into a 
 ---
 
 Backend: Node
+
 Database: "Firebase"
+
 CI: Travis
 
 https://scotch.io/tutorials/building-and-securing-a-modern-backend-api
@@ -55,6 +57,8 @@ npm init
 ~~~
 npm install express express-jwt auth0-api-jwt-rsa-validation --save
 ~~~
+
+Crear el archivo .gitignore en la raíz del proyecto. Ingresar a la página https://www.gitignore.io/ y en el área de texto agregar el sistema operativo, IDE's y NodeJS, ejemplo OSX Node VisualStudioCode. Genere el archivo y cópielo dentro del archivo .gitignore
 
 ~~~
 node server
