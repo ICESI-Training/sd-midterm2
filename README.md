@@ -50,6 +50,8 @@ For this exam you should redesing the application developed in midterm 1 into a 
 * Cristian Alejandro Morales López - A00328064
 * Juan Esteban Quinayás Gaitán - A00027548
 
+### Inicialización
+
 Lo primero que hacemos es un **fork** al repositorio de Github **sd-midterm2**. Dicho repositorio cuenta con tres archivos: .gitignore, LICENSE y README.md (vacío).
 
 A continuación, editamos el archivo **.gitignore** que se encuentra en la raíz del proyecto. Para ello, ingresamos a la página https://www.gitignore.io/ y en el área de texto agregamos el sistema operativo (Windows), IDE's (Visual Studio Code) y el lenguaje (NodeJS). Damos clic en **Create** para generar el archivo. Una vez creado, lo copiamos y lo anexamos dentro del archivo .gitignore.
@@ -72,11 +74,39 @@ npm install express express-jwt auth0-api-jwt-rsa-validation --save
 
 La dependencia **express** desplegará el framework express, la librería **express-jwt** nos dará funciones para trabajar con Web Tokens JSON, y finalmente la validación **auth0-api-jwt-rsa** proporcionará una función de ayuda para obtener nuestra clave secreta.
 
-Ahora, creamos el archivo **server.js** en la raíz del proyecto.
+### Métodos de petición HTTP 
+
+https://developer.mozilla.org/es/docs/Web/HTTP/Methods
+
+**GET:** solicita una representación de un recurso específico. Las peticiones que usan el método GET sólo deben recuperar datos.
+
+**HEAD:** pide una respuesta idéntica a la de una petición GET, pero sin el cuerpo de la respuesta.
+
+**POST:** se utiliza para enviar una entidad a un recurso específico, causando a menudo un cambio en el estado o efectos secundarios en el servidor.
+
+**PUT** reemplaza todas las representaciones actuales del recurso de destino con la carga útil de la petición.
+
+**DELETE** borra un recurso específico.
+
+**PATCH** es utilizado para aplicar modificaciones parciales a un recurso.
+
+### Implementación
+
+#### Backend
+
+Creamos el archivo **server.js** en la raíz del proyecto.
 
 ~~~
 // Insertar código aquí después de entender cómo funciona
 ~~~
+
+#### Database
+
+### Pruebas unitarias
+
+BLA
+
+### Despliegue
 
 Para desplegar nuestra API ejecutamos el siguiente comando en la terminal de Visual Studio Code:
 
@@ -94,6 +124,8 @@ Como resultado obtendremos el siguiente JSON con la lista de reseñas de pelícu
 
 ---
 
-**Referencias:**
+### Referencias
 
 https://scotch.io/tutorials/building-and-securing-a-modern-backend-api
+
+https://developer.mozilla.org/es/docs/Web/HTTP/Methods
