@@ -1,4 +1,6 @@
-# Exam 2 
+# Exam 2
+
+## Description
 
 **Universidad ICESI**  
 **Course:** Distributed systems  
@@ -42,29 +44,56 @@ For this exam you should redesing the application developed in midterm 1 into a 
 
 ---
 
-Backend: Node
+## Desarrollo
 
-Database: "Firebase"
+### Equipo de trabajo:
+* Cristian Alejandro Morales López - A00328064
+* Juan Esteban Quinayás Gaitán - A00027548
 
-CI: Travis
+Lo primero que hacemos es un **fork** al repositorio de Github **sd-midterm2**. Dicho repositorio cuenta con tres archivos: .gitignore, LICENSE y README.md (vacío).
 
-https://scotch.io/tutorials/building-and-securing-a-modern-backend-api
+A continuación, editamos el archivo **.gitignore** que se encuentra en la raíz del proyecto. Para ello, ingresamos a la página https://www.gitignore.io/ y en el área de texto agregamos el sistema operativo (Windows), IDE's (Visual Studio Code) y el lenguaje (NodeJS). Damos clic en **Create** para generar el archivo. Una vez creado, lo copiamos y lo anexamos dentro del archivo .gitignore.
+
+Creamos la carpeta **api** en la raíz del proyecto.
+
+Inicializamos el proyecto ejecutando el siguiente comando en la terminal de Visual Studio Code:
 
 ~~~
 npm init
 ~~~
 
+Después de ejecutarlo aparecen una serie de campos que dejamos en default, excepto por el campo *description* que le pusimos *Parcial 2 - Distribuidos*. Al finalizar se habrá configurado el archivo **package.json**, se habrá creado el archivo **package-lock.json** y se habrá creado el directorio **node_modules**.
+
+Antes de escribir cualquier línea de código, instalamos y guardamos las dependencias que vamos a utilizar. Con ese fin, ejecutamos el siguiente comando por la terminal de Visual Studio Code:
+
 ~~~
 npm install express express-jwt auth0-api-jwt-rsa-validation --save
 ~~~
 
-Crear el archivo .gitignore en la raíz del proyecto. Ingresar a la página https://www.gitignore.io/ y en el área de texto agregar el sistema operativo, IDE's y NodeJS, ejemplo OSX Node VisualStudioCode. Genere el archivo y cópielo dentro del archivo .gitignore
+La dependencia **express** desplegará el framework express, la librería **express-jwt** nos dará funciones para trabajar con Web Tokens JSON, y finalmente la validación **auth0-api-jwt-rsa** proporcionará una función de ayuda para obtener nuestra clave secreta.
+
+Ahora, creamos el archivo **server.js** en la raíz del proyecto.
+
+~~~
+// Insertar código aquí después de entender cómo funciona
+~~~
+
+Para desplegar nuestra API ejecutamos el siguiente comando en la terminal de Visual Studio Code:
 
 ~~~
 node server
 ~~~
 
+Después abrimos el navegador web de nuestra preferencia y accedemos al siguiente endpoint:
+
 ~~~
 localhost:8080/movies
 ~~~
 
+Como resultado obtendremos el siguiente JSON con la lista de reseñas de películas y sus datos asociados.
+
+---
+
+**Referencias:**
+
+https://scotch.io/tutorials/building-and-securing-a-modern-backend-api
