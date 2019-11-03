@@ -1,0 +1,32 @@
+{
+    "name": "sd-midterm2",
+    "version": "1.0.0",
+    "description": "Parcial 2 - Distribuidos",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha -t 5000 --reporter mochawesome --reporter-options reportDir=report,reportFilename=ApiTesting"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JuanesApps/sd-midterm2.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/JuanesApps/sd-midterm2/issues"
+    },
+    "homepage": "https://github.com/JuanesApps/sd-midterm2#readme",
+    "dependencies": {
+        "auth0-api-jwt-rsa-validation": "0.0.3",
+        "express": "^4.17.1",
+        "express-jwt": "^5.3.1",
+        "mochawesome": "^4.1.0",
+        "superagent": "^5.1.0",
+        "superagent-promise": "^1.1.0"
+    },
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "http-status-codes": "^1.4.0",
+        "mocha": "^6.2.2"
+    }
+}
