@@ -112,11 +112,15 @@ Creamos el archivo **server.js** en la raíz del proyecto.
 
 ### Pruebas unitarias
 
-Instalamos la dependencia de desarrollo **mocha chai**.
+Instalamos las dependencias de desarrollo **mocha** y **chai**.
 
 ~~~
-npm install --save-dev mocha chia
+npm install --save-dev mocha chai
 ~~~
+
+**mocha** es un framework de pruebas de JavaScript que se ejecuta en NodeJS. Nos da la posibilidad de crear tanto tests síncronos como asíncronos de una forma muy sencilla. Nos proporciona muchas utilidades para la ejecución y el reporte de los tests.
+
+**chai** es una librería de aserciones, la cual se puede emparejar con cualquier marco de pruebas de Javascript. Chai tiene varias interfaces: assert, expect y should, que permite al desarrollador elegir el estilo que le resulte más legible y cómodo a la hora de desarrollar sus tests.
 
 Instalamos la dependencia de desarrollo **http-status-codes**.
 
@@ -124,11 +128,15 @@ Instalamos la dependencia de desarrollo **http-status-codes**.
 npm install --save-dev http-status-codes
 ~~~
 
+**http-status-codes** es una librería que contiene un enumerador de los principales códigos de respuesta de los métodos HTTP.
+
 Instalamos las dependencias **superagent** y **superagent-promise**.
 
 ~~~
 npm install --save superagent superagent-promise
 ~~~
+
+**superagent** es una librería cliente. Es usada principalmente para hacer peticiones AJAX en el navegador, pero también trabaja en NodeJS.
 
 Para ejecutar las pruebas unitarias sobre nuestra API, utilizamos el siguiente comando en la terminal de Visual Studio Code:
 
@@ -212,6 +220,10 @@ Adicionalmente, quisimos generar un reporte con interfaz gráfica (reporte HTML)
 
 Primero, instalamos la dependencia de desarrollo **mochawesome**.
 
+~~~
+npm install --save mochawesome
+~~~
+
 Segundo, vamos al archivo **package.json**, buscamos el objeto **scripts**, dentro buscamos el objeto **test** y agregamos a su contenido *--reporter mochawesome --reporter-options reportDir=report,reportFilename=ApiTesting*.
 
 Debería quedarnos así:
@@ -229,8 +241,15 @@ Tercero, agregamos las siguientes líneas dentro del archivo **.gitignore**:
 report
 ~~~
 
+Para que se genere el reporte es necesario correr las pruebas, es decir, ejecutar el siguiente comando por la terminal de Visual Studio Code:
+
+~~~
+npm test
+~~~
+
+Se creará automáticamente una carpeta **report** con el reporte HTML. Para visualizarlo basta con copiar la ruta (terminada en **.html**) que sale en la consola, como por ejemplo: *D:\JUANES\9no Semestre\Distribuidos\sd-midterm2\report\ApiTesting.html*, y pegarla en el navegador.
+
 <Insertar imagen>
-<Siento que me falta algo, verificar sobre la marcha>
 
 ---
 
@@ -238,4 +257,8 @@ report
 
 https://scotch.io/tutorials/building-and-securing-a-modern-backend-api
 
+https://github.com/holgiosalos/workshop-api-testing-js/
+
 https://developer.mozilla.org/es/docs/Web/HTTP/Methods
+
+https://www.paradigmadigital.com/dev/testeando-javascript-mocha-chai/
