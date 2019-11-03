@@ -50,6 +50,8 @@ For this exam you should redesing the application developed in midterm 1 into a 
 * Cristian Alejandro Morales López - A00328064
 * Juan Esteban Quinayás Gaitán - A00027548
 
+---
+
 ### Inicialización
 
 Lo primero que hacemos es un **fork** al repositorio de Github **sd-midterm2**. Dicho repositorio cuenta con tres archivos: .gitignore, LICENSE y README.md (vacío).
@@ -74,6 +76,8 @@ npm install express express-jwt auth0-api-jwt-rsa-validation --save
 
 La dependencia **express** desplegará el framework express, la librería **express-jwt** nos dará funciones para trabajar con Web Tokens JSON, y finalmente la validación **auth0-api-jwt-rsa** proporcionará una función de ayuda para obtener nuestra clave secreta.
 
+---
+
 ### Métodos de petición HTTP 
 
 https://developer.mozilla.org/es/docs/Web/HTTP/Methods
@@ -84,11 +88,13 @@ https://developer.mozilla.org/es/docs/Web/HTTP/Methods
 
 **POST:** se utiliza para enviar una entidad a un recurso específico, causando a menudo un cambio en el estado o efectos secundarios en el servidor.
 
-**PUT** reemplaza todas las representaciones actuales del recurso de destino con la carga útil de la petición.
+**PUT:** reemplaza todas las representaciones actuales del recurso de destino con la carga útil de la petición.
 
-**DELETE** borra un recurso específico.
+**DELETE:** borra un recurso específico.
 
-**PATCH** es utilizado para aplicar modificaciones parciales a un recurso.
+**PATCH:** es utilizado para aplicar modificaciones parciales a un recurso.
+
+---
 
 ### Implementación
 
@@ -102,9 +108,35 @@ Creamos el archivo **server.js** en la raíz del proyecto.
 
 #### Database
 
+---
+
 ### Pruebas unitarias
 
-BLA
+Instalamos la dependencia de desarrollo **mocha chai**.
+
+~~~
+npm install --save-dev mocha chia
+~~~
+
+Instalamos la dependencia de desarrollo **http-status-codes**.
+
+~~~
+npm install --save-dev http-status-codes
+~~~
+
+Instalamos las dependencias **superagent** y **superagent-promise**.
+
+~~~
+npm install --save superagent superagent-promise
+~~~
+
+Para ejecutar las pruebas unitarias sobre nuestra API, utilizamos el siguiente comando en la terminal de Visual Studio Code:
+
+~~~
+npm test
+~~~
+
+---
 
 ### Despliegue
 
@@ -121,6 +153,84 @@ localhost:8080/movies
 ~~~
 
 Como resultado obtendremos el siguiente JSON con la lista de reseñas de películas y sus datos asociados.
+
+---
+
+### Integración Continua
+
+Creamos el archivo **.travis.yml** en la raíz del proyecto.
+
+Dentro de dicho archivo agregamos el siguiente contenido:
+
+~~~
+language: node_js
+cache:
+directories:
+- node_modules
+notifications:
+email: false
+branches:
+except:
+- "/^v\\d+\\.\\d+\\.\\d+$/"
+~~~
+
+Habilitamos Travis en el repositorio
+
+<Insertar imagen>
+
+Creamos el archivo **.nvmrc** en la raíz del proyecto.
+
+Dentro de dicho archivo agregamos la versión de NodeJS que se está utilizando. En este caso:
+
+~~~
+v12.6.0
+~~~
+
+**Nota:** en caso de no saber la versión de NodeJS que se está utilizando se puede ejecutar el siguiente comando por la terminal de Visual Studio Code:
+
+~~~
+node -v > .nvmrc
+~~~
+
+Vamos al archivo **package.json**, buscamos el objeto **scripts** (en nuestro caso ubicado en la línea 6), dentro buscamos el objeto **test** (en nuestro caso ubicado en la línea 7) y agregamos a su contenido *-t 5000*.
+
+Debería quedarnos así:
+
+~~~
+"scripts":{
+    "test": "mocha -t 5000"
+}
+~~~
+
+Lo siguiente es verificar que la ejecución en Travis termine correctamente.
+
+<Siento que falta algo, verificar sobre la marcha>
+
+#### Reporte de pruebas
+
+Adicionalmente, quisimos generar un reporte con interfaz gráfica (reporte HTML) para ver los resultados de las pruebas de una forma más amena.
+
+Primero, instalamos la dependencia de desarrollo **mochawesome**.
+
+Segundo, vamos al archivo **package.json**, buscamos el objeto **scripts**, dentro buscamos el objeto **test** y agregamos a su contenido *--reporter mochawesome --reporter-options reportDir=report,reportFilename=ApiTesting*.
+
+Debería quedarnos así:
+
+~~~
+"scripts": {
+    "test": "mocha -t 5000 --reporter mochawesome --reporter-options reportDir=report,reportFilename=ApiTesting"
+}
+~~~
+
+Tercero, agregamos las siguientes líneas dentro del archivo **.gitignore**:
+
+~~~
+## Reports ##
+report
+~~~
+
+<Insertar imagen>
+<Siento que me falta algo, verificar sobre la marcha>
 
 ---
 
