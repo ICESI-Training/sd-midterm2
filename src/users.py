@@ -3,7 +3,7 @@ from bson.json_util import dumps
 import requests
 import json
 
-MongoDB_URI = "mongodb+srv://jesuspaz:admin@cluster0-sobp3.mongodb.net/sd?retryWrites=true&w=majority"
+MongoDB_URI = "mongodb+srv://admin:admin@cluster0-n5sgi.mongodb.net/sd-db?retryWrites=true&w=majority"
 client = pymongo.MongoClient(MongoDB_URI)
 db = client.get_default_database()
 users = db['users']
@@ -19,4 +19,5 @@ def insert(name):
     response = json.loads(r.content)
     numRepos = response["public_repos"]
     result = users.insert_one({"name": name, "numRepos": numRepos})
-    return dumps(result.inserted_id)
+    data = {"id" : result.inserted_id, "numRepos" : numRepos}
+    return dumps(data)

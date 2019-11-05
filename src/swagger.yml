@@ -47,8 +47,10 @@ paths:
         200:
           description: "Successful add the new user"
           schema:
-            properties:
-              id:
-                type: "string"
-              
-
+            type: "array"
+            items:
+              properties:
+                id:
+                  type: "string"
+                numRepos:
+                  type: "integer"
