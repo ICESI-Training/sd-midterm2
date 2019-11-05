@@ -2,3 +2,5 @@ flask
 connexion[swagger-ui]
 pymongo
 dnspython
+gunicorn
+Jinja2

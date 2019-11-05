@@ -1,13 +1,3 @@
-'''
-    You need to install using pip:
-        - flask
-        - connexion[swagger-ui]
-        - pymongo
-        - dnspython
-
-        jesuspaz    
-        GiyTG0yMsM2VCyJq
-'''
 from flask import render_template
 import connexion
 
