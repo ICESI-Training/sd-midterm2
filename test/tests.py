@@ -6,7 +6,7 @@ class TestUsersApi(unittest.TestCase):
 
     def test_get_all_users(self):
 
-        response = requests.get('http://localhost:5000/users',
+        response = requests.get('https://sd-api-md2.herokuapp.com/users',
         headers={'Accept': 'application/json'})
 
         self.assertEqual(response.status_code, 200, "Should be 200")
@@ -14,7 +14,7 @@ class TestUsersApi(unittest.TestCase):
 
     def test_add_new_user(self):
         
-        response = requests.post('http://localhost:5000/users/JesusPaz',
+        response = requests.post('https://sd-api-md2.herokuapp.com/users/JesusPaz',
         headers={'Accept': 'application/json'})
 
         self.assertEqual(response.status_code, 200, "Should be 200")
