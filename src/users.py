@@ -3,9 +3,12 @@ from bson.json_util import dumps
 import requests
 import json
 import dns
+import os
 
-MongoDB_URI = "mongodb+srv://admin:admin@cluster0-n5sgi.mongodb.net/sd-db?retryWrites=true&w=majority"
-client = pymongo.MongoClient(MongoDB_URI)
+# MongoDB_URI = "mongodb+srv://admin:admin@cluster0-n5sgi.mongodb.net/sd-db?retryWrites=true&w=majority"
+# MongoDB_URI = "mongodb://admin:admin123@ds241278.mlab.com:41278/heroku_2b3pbkcr?retryWrites=true&w=majority"
+
+client = pymongo.MongoClient(os.environ["MongoDB_URI"])
 db = client.get_default_database()
 users = db['users']
 
