@@ -9,6 +9,9 @@ import os
 # MongoDB_URI = "mongodb://admin:admin123@ds241278.mlab.com:41278/heroku_2b3pbkcr?retryWrites=true&w=majority"
 
 client = pymongo.MongoClient(os.environ["MongoDB_URI"])
+
+# client = pymongo.MongoClient(MongoDB_URI)
+
 db = client.get_default_database()
 users = db['users']
 
