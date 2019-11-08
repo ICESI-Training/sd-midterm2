@@ -4,17 +4,19 @@ import json
 
 class TestUsersApi(unittest.TestCase):
 
-    def test_get_all_users(self):
+    API_URL = "http://apiflask-env.uuhyrnua83.us-east-2.elasticbeanstalk.com"
 
-        response = requests.get('https://sd-api-md2.herokuapp.com/users',
+    def test_get_all_users(self):
+    
+        response = requests.get(self.API_URL+'/users',
         headers={'Accept': 'application/json'})
 
         self.assertEqual(response.status_code, 200, "Should be 200")
         
 
     def test_add_new_user(self):
-        
-        response = requests.post('https://sd-api-md2.herokuapp.com/users/JesusPaz',
+
+        response = requests.post(self.API_URL+'/users/JesusPaz',
         headers={'Accept': 'application/json'})
 
         self.assertEqual(response.status_code, 200, "Should be 200")
