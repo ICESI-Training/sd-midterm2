@@ -36,6 +36,19 @@ Para desplegar los servicios en la máquina local se debe hacer lo siguiente:
 
 ## 5. Problemas encontrados y las acciones efectuadas para su solución.
 
+El mayor problema fue desplegar la API en la nube. Para esto intente las siguientes opciones:
+
+1. Heroku: fue mi primer intento ya que tenía ciertos conocimientos sobre esta aplicación. Presente los siguientes problemas:
+
+  * Debía instalar algún tipo de paquete para ejecutar el servidor (gunicorn o wsgi), esto generó problemas. Al final termine utilizando wsgi y desplegar la aplicación en Heroku.
+
+  * b. La aplicación estaba desplegada, pero al momento de hacer la petición de los usuarios, la base de datos (Mongo Atlas) no respondía. Intenté solucionar este error pero no lo logré, por lo tanto migre a AWS.
+    
+2. AWS: fue la plataforma final de despliegue, pero tuve también muchos problemas. Use Elastic Beanstalk y para python    tiene configurado que el servidor se llame application.py, mientras el mio se llamada app.py. La solución fue buscar tutoriales, ver como ellos desplegaba y les funcionaba y tratar de replicar lo que hacían. La solución fue cambiar los nombres que era necesarios y agregar solo los archivos importantes en un .zip, para posteriormente agregarlo directamente desde la web de AWS.
+
+
+
+
 
 
 
