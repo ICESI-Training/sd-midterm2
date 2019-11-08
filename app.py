@@ -10,4 +10,4 @@ def home():
     return "Welcome to my API"
 
 if __name__ == '__main__':
-    app.run(host="localhost", debug=True)
+    app.run(threaded=True, debug=True)
