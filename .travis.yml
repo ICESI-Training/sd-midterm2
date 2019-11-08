@@ -1,5 +1,8 @@
 language: python
 python:
   - "3.7"
+cache: pip
+install:
+  - pip install -r src/requirements.txt
 script:
   - python test/tests.py
