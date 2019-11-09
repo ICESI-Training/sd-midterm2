@@ -23,11 +23,12 @@ Para este proyecto se utilizó python 3.7
 Para desplegar los servicios en la máquina local se debe hacer lo siguiente:
   1. Instalar las dependencias necesarias para el funcionamiento de la API, debe ubicarse en la raíz del proyecto y ejecutar el siguiente comando:
   ~~~
-    pip install -r requirements.txt
+    pip install -r src/requirements.txt
   ~~~
   2. Se debe ejecutar el servidor, se realiza de la siguiente manera:
   ~~~
-    python src/app.py
+    export mongoURL="mongodb+srv://admin:admin@cluster0-n5sgi.mongodb.net"
+    python src/application.py
   ~~~
   3. Desde el navegador se ingresa a [localhost](localhost:5000) por el puerto 5000.
   
