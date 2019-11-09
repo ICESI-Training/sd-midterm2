@@ -35,7 +35,23 @@ En la imagen podemos ver que tenemos muchos datos que son:
 
 ## 2.1 Pruebas unitarias de cada microservicio para el proceso de integración contínua. 
 
+Para el proceso de integración continua se utilizó travis y GitHub Actions
+
+### Travis
+
+Se agregó travis al repositorio y se creó un archivo llamado travis.yml, en donde se instalan en python los paquetes necesarios y luego se ejecuta el archivo test/tests.py, en donde se hacen todas las peticiones para probar los servicios de la API desplegada en AWS.
+
+### Actions
+
+De la misma manera, se creó un archivo en donde se aprovisiona python con los paquetes necesarios, posteriormente se ejecuta el archivo test/tests.py.
+
+
 ## 2.2 Evidencia del código pasando dichas pruebas.
+
+En la siguiente imagen se pueden ver como pasan las pruebas en la consola de travis.
+
+En la siguiente imagen se pueden ver como pasan las pruebas en la consola de Actions.
+
 
 ## 3. Archivos fuentes en el repositorio de los microservicios implementados.
 
