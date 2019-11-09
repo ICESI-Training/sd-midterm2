@@ -12,6 +12,27 @@ Para este proyecto se utilizó python 3.7
 
 ## 1. Documentación de la API de conformidad con el estándar
 
+Para el desarrollo de este trabajo se utilizó el micro framework llamado Flask. Para el desarrollo de la API se utilizo el paquete llamado connexion (https://connexion.readthedocs.io/en/latest/quickstart.html), de esta manera, lo relacionado con la documentacion se encuentra en el archivo src/swagger.yml. 
+
+En este archivo se definen los servicios que expone la API, junto con la manera en la que se accede correctamente a esta función, de la misma manera se definen las formas en las que puede responder el servidor.
+
+Para ver de una manera grafica esta documentacion lo podemos hacer accediendo al siguiente link (http://apiflask-env.uuhyrnua83.us-east-2.elasticbeanstalk.com/ui/), podemos apreciar lo siguiente:
+
+En esta imagen podemos ver que el servicio se llama Users y que tiene diferentes métodos.
+
+A continuación vamos a proceder a explicar uno de los métodos que se pueden utilizar, en esta API.
+
+En la imagen podemos ver que tenemos muchos datos que son:
+* Implementation Notes: Es la descripción de lo que hace el servicio.
+* Response Class: Lo que debería responder el servicio
+* Model: El modelo que debería retornar el servicio.
+* Parameters: Los parámetros que entrar a la consulta.
+* Response Messages: Las posibles respuestas que puede dar el servidor, en este caso corresponden a los errores.
+* Try it out!: Es un botón, para que funcione correctamente es necesario llenar los parámetros primero. Al pulsarlo se puede ver el resultado de la consulta justo abajo.
+
+
+
+
 ## 2.1 Pruebas unitarias de cada microservicio para el proceso de integración contínua. 
 
 ## 2.2 Evidencia del código pasando dichas pruebas.
