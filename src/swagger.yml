@@ -44,7 +44,7 @@ paths:
       summary: "Insert a new user"
       description: "Insert a new GitHub user into the database"
       responses:
-        200:
+        201:
           description: "Successful add the new user"
           schema:
             type: "array"
@@ -54,3 +54,32 @@ paths:
                   type: "string"
                 numRepos:
                   type: "integer"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "array"
+            items:
+              properties:
+                name_error:
+                  type: "string"
+                description:
+                  type: "string"
+    delete:
+      operationId: "users.delete"
+      tags:
+        - "Users"
+      summary: "Delete a user"
+      description: "Delete a GitHub user from the database"
+      responses:
+        200:
+          description: "Successful delete a user"
+        400:
+          description: "Bad Request"
+          schema:
+            type: "array"
+            items:
+              properties:
+                name_error:
+                  type: "string"
+                description:
+                  type: "string"
