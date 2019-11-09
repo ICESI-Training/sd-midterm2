@@ -10,15 +10,19 @@ Para este proyecto se utilizó python 3.7
 
 ## 1. Documentación de la API de conformidad con el estándar
 
-Para el desarrollo de este trabajo se utilizó el micro framework llamado Flask. Para el desarrollo de la API se utilizo el paquete llamado connexion (https://connexion.readthedocs.io/en/latest/quickstart.html), de esta manera, lo relacionado con la documentacion se encuentra en el archivo src/swagger.yml. 
+Para el desarrollo de este trabajo se utilizó el micro framework llamado Flask. Para el desarrollo de la API se utilizo el paquete llamado [connexion](https://connexion.readthedocs.io/en/latest/quickstart.html), de esta manera, lo relacionado con la documentacion se encuentra en el archivo [src/swagger.yml](https://github.com/JesusPaz/sd-midterm2/tree/master/src/swagger.yml). 
 
 En este archivo se definen los servicios que expone la API, junto con la manera en la que se accede correctamente a esta función, de la misma manera se definen las formas en las que puede responder el servidor.
 
-Para ver de una manera grafica esta documentacion lo podemos hacer accediendo al siguiente link (http://apiflask-env.uuhyrnua83.us-east-2.elasticbeanstalk.com/ui/), podemos apreciar lo siguiente:
+Para ver de una manera grafica esta documentacion lo podemos hacer accediendo al siguiente [link](http://apiflask-env.uuhyrnua83.us-east-2.elasticbeanstalk.com/ui/), podemos apreciar lo siguiente:
+
+![Swagger](/images/ui-docs-api.png)
 
 En esta imagen podemos ver que el servicio se llama Users y que tiene diferentes métodos.
 
 A continuación vamos a proceder a explicar uno de los métodos que se pueden utilizar, en esta API.
+
+![POST](/images/POST-des.png)
 
 En la imagen podemos ver que tenemos muchos datos que son:
 * Implementation Notes: Es la descripción de lo que hace el servicio.
@@ -29,15 +33,13 @@ En la imagen podemos ver que tenemos muchos datos que son:
 * Try it out!: Es un botón, para que funcione correctamente es necesario llenar los parámetros primero. Al pulsarlo se puede ver el resultado de la consulta justo abajo.
 
 
-
-
 ## 2.1 Pruebas unitarias de cada microservicio para el proceso de integración contínua. 
 
 Para el proceso de integración continua se utilizó travis y GitHub Actions
 
 ### Travis
 
-Se agregó travis al repositorio y se creó un archivo llamado travis.yml, en donde se instalan en python los paquetes necesarios y luego se ejecuta el archivo test/tests.py, en donde se hacen todas las peticiones para probar los servicios de la API desplegada en AWS.
+Se agregó travis al repositorio y se creó un archivo llamado .travis.yml, en donde se instalan en python los paquetes necesarios y luego se ejecuta el archivo test/tests.py, en donde se hacen todas las peticiones para probar los servicios de la API desplegada en AWS.
 
 ### Actions
 
@@ -48,8 +50,11 @@ De la misma manera, se creó un archivo en donde se aprovisiona python con los p
 
 En la siguiente imagen se pueden ver como pasan las pruebas en la consola de travis.
 
+![Travis](/images/travis.png)
+
 En la siguiente imagen se pueden ver como pasan las pruebas en la consola de Actions.
 
+![Actions](/images/actions.png)
 
 ## 3. Archivos fuentes en el repositorio de los microservicios implementados.
 
@@ -58,7 +63,6 @@ Los archivos del código fuente se encuentran en la carpeta llamada src y son:
 * requirements.txt - Archivo donde se encuentran todos los paquetes a instalar para que se ejecute python correctamente.
 * swagger.yml - Documentación de la API, se carga en el archivo application.py
 * users.py - Archivo que corresponde al servicio Users de la API, contiene todos los métodos necesarios para su funcionamiento.
-
 
 ## 4.1 Documentación de las tareas para desplegar los microservicios en una máquina local.
 
@@ -72,21 +76,26 @@ Para desplegar los servicios en la máquina local se debe hacer lo siguiente:
     export mongoURL="mongodb+srv://admin:admin@cluster0-n5sgi.mongodb.net"
     python src/application.py
   ~~~
-  3. Desde el navegador se ingresa a [localhost](localhost:5000) por el puerto 5000.
+  3. Desde el navegador se ingresa a [localhost](http://localhost:5000) por el puerto 5000.
   
 
 ## 4.2 Documentación de las tareas para desplegar los microservicios en AWS.
 
 ## 4.3 Evidencias del despliegue.
 
-Para revisar el funcionamiento de la API se utilizo Swagger UI, se accede en el siguiente link (apiflask-env.uuhyrnua83.us-east-2.elasticbeanstalk.com/ui).
+Para revisar el funcionamiento de la API se utilizo Swagger UI, se accede en el siguiente [link](apiflask-env.uuhyrnua83.us-east-2.elasticbeanstalk.com/ui).
 
 Primero, vamos a ver los usuarios existentes para eso entramos al método GET y presionamos el botón Try it out!, se obtiene lo siguiente:
 
+![GET](/images/GET-Tst.png)
+
 Segundo, el la sección POST vamos a agregar un nuevo usuario. Para esto en el parámetro nombre ponemos JesusPaz y presionamos el botón Try it out!, tenemos lo siguiente:
+
+![POST](/images/POST-Jesus.png)
 
 Por último,  vamos a eliminar el usuario que acabamos de agregar. Entramos a la sección DELETE, añadimos como parámetro el nombre JesusPaz y presionamos el botón Try it out!, arroja lo siguiente:
 
+![DELETE](/images/DELETE-Jesus.png)
 
 ## 5. Problemas encontrados y las acciones efectuadas para su solución.
 
@@ -99,13 +108,3 @@ El mayor problema fue desplegar la API en la nube. Para esto intente las siguien
   * b. La aplicación estaba desplegada, pero al momento de hacer la petición de los usuarios, la base de datos (Mongo Atlas) no respondía. Intenté solucionar este error pero no lo logré, por lo tanto migre a AWS.
     
 2. AWS: fue la plataforma final de despliegue, pero tuve también muchos problemas. Use Elastic Beanstalk y para python    tiene configurado que el servidor se llame application.py, mientras el mio se llamada app.py. La solución fue buscar tutoriales, ver como ellos desplegaba y les funcionaba y tratar de replicar lo que hacían. La solución fue cambiar los nombres que era necesarios y agregar solo los archivos importantes en un .zip, para posteriormente agregarlo directamente desde la web de AWS.
-
-
-
-
-
-
-
-
-
-
