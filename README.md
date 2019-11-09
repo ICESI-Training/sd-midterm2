@@ -3,8 +3,6 @@
 # Examen 2 - Sistemas Distribuidos
 ## Integrantes
 - Jesús Paz - A00022240
-- William
-
 
 ## Nota:
 Para este proyecto se utilizó python 3.7
@@ -55,6 +53,13 @@ En la siguiente imagen se pueden ver como pasan las pruebas en la consola de Act
 
 ## 3. Archivos fuentes en el repositorio de los microservicios implementados.
 
+Los archivos del código fuente se encuentran en la carpeta llamada src y son:
+* application.py - Archivo principal del servidor, se configura y carga la API.
+* requirements.txt - Archivo donde se encuentran todos los paquetes a instalar para que se ejecute python correctamente.
+* swagger.yml - Documentación de la API, se carga en el archivo application.py
+* users.py - Archivo que corresponde al servicio Users de la API, contiene todos los métodos necesarios para su funcionamiento.
+
+
 ## 4.1 Documentación de las tareas para desplegar los microservicios en una máquina local.
 
 Para desplegar los servicios en la máquina local se debe hacer lo siguiente:
@@ -70,7 +75,18 @@ Para desplegar los servicios en la máquina local se debe hacer lo siguiente:
   3. Desde el navegador se ingresa a [localhost](localhost:5000) por el puerto 5000.
   
 
-## 4.2 Evidencias del despliegue.
+## 4.2 Documentación de las tareas para desplegar los microservicios en AWS.
+
+## 4.3 Evidencias del despliegue.
+
+Para revisar el funcionamiento de la API se utilizo Swagger UI, se accede en el siguiente link (apiflask-env.uuhyrnua83.us-east-2.elasticbeanstalk.com/ui).
+
+Primero, vamos a ver los usuarios existentes para eso entramos al método GET y presionamos el botón Try it out!, se obtiene lo siguiente:
+
+Segundo, el la sección POST vamos a agregar un nuevo usuario. Para esto en el parámetro nombre ponemos JesusPaz y presionamos el botón Try it out!, tenemos lo siguiente:
+
+Por último,  vamos a eliminar el usuario que acabamos de agregar. Entramos a la sección DELETE, añadimos como parámetro el nombre JesusPaz y presionamos el botón Try it out!, arroja lo siguiente:
+
 
 ## 5. Problemas encontrados y las acciones efectuadas para su solución.
 
