@@ -84,15 +84,13 @@ https://developer.mozilla.org/es/docs/Web/HTTP/Methods
 
 **GET:** solicita una representación de un recurso específico. Las peticiones que usan el método GET sólo deben recuperar datos.
 
-**HEAD:** pide una respuesta idéntica a la de una petición GET, pero sin el cuerpo de la respuesta.
-
 **POST:** se utiliza para enviar una entidad a un recurso específico, causando a menudo un cambio en el estado o efectos secundarios en el servidor.
-
-**PUT:** reemplaza todas las representaciones actuales del recurso de destino con la carga útil de la petición.
 
 **DELETE:** borra un recurso específico.
 
 **PATCH:** es utilizado para aplicar modificaciones parciales a un recurso.
+
+***Estos son los métodos HTTP que utilizaremos en nuestra API.***
 
 ---
 
@@ -100,14 +98,160 @@ https://developer.mozilla.org/es/docs/Web/HTTP/Methods
 
 #### Backend
 
-Creamos el archivo **server.js** en la raíz del proyecto.
+Vamos a instalar las dependencias **nodemon**, **morgan** y **body-parser**.
+
+Para instalar **nodemon**, dependencia de desarollo, ejecutamos el siguiente comando en la terminal de Visual Studio Code:
 
 ~~~
-// Insertar código aquí después de entender cómo funciona
+npm install --save-dev nodemon
 ~~~
 
-Nota: si se olvida de poner module.exports = router aparece el siguiente error
-[...] throw new TypeError('Router.use() requires a middleware function but got a ' + gettype(fn)) [...]
+**nodemon** un monitor de cambios en nuestro código que nos recarga el servidor cada vez que hacemos algún cambio.
+
+Dado que el comando *nodemon* no va a ser reconocido, nos dirigimos al archivo **package.json**, buscamos el objeto **scripts** (en nuestro caso ubicado en la línea 6), abajo del objeto **test** (en nuestro caso ubicado en la línea 7) y agregamos el objeto **start** con el contenido *nodemon ./api/server.js*.
+
+Debería quedar así:
+
+~~~
+"scripts":{
+    "test": "...",
+    "start": "nodemon ./api/server.js"
+}
+~~~
+
+Cabe resaltar que por el momento no le pusimos cuidado al contenido de **test**, por eso le pusimos tres puntos. 
+
+Para instalar **morgan** ejecutamos el siguiente comando en la terminal de Visual Studio Code:
+
+~~~
+npm install --save morgan
+~~~
+
+**morgan** middleware del logger de petición HTTP para node.js. Básicamente, imprime por consola las peticiones que hacen al servidor con su estatus correspondiente.
+
+Para instalar **body-parser** ejecutamos el siguiente comando en la terminal de Visual Studio Code:
+
+~~~
+npm install --save body-parser
+~~~
+
+**body-parser** nos permite convertir los datos que nos lleguen en las peticiones al servidor en objetos json.
+
+Creamos la carpeta **api** y dentro creamos dos archivos: **app.js** y **server.js**.
+
+Dentro del archivo **app.js** añadimos el siguiente contenido:
+
+~~~
+const express = require('express')
+const app = express()
+const morgan = require('morgan')
+const bodyParser = require('body-parser')
+
+const movieRoutes = require('../routes/movies')
+const reviewRoutes = require('../routes/reviewers')
+const publicationRoutes = require('../routes/publications')
+
+app.use(morgan('dev'))
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
+
+// Routes which should handle request
+app.use('/movies', movieRoutes)
+app.use('/reviewers', reviewRoutes)
+app.use('/publications', publicationRoutes)
+
+module.exports = app
+~~~
+
+Primero, importamos las dependencias. Segundo, inicializamos los archivos (*los crearemos más adelante*) que contienen los *endpoints* de nuestra API. Tercero, ponemos unos parámetros para que las dependencias funcionen. Cuarto, inicializamos las rutas que manejarán las solicitudes. Y finalmente, exportamos la variable *app* para ser utilizada en otro modulo que la requiera.
+
+Dentro del archivo **server.js** añadimos el siguiente contenido:
+
+~~~
+const http = require('http')
+const app = require('./app')
+const port = 8080
+
+const server = http.createServer(app)
+
+server.listen(port)
+~~~
+
+Lo que estamos haciendo es poner a correr el servidor de nuestra API, para lo cual inicializamos la aplicación (archivo **app.js**), asignamos la dirección IP (en este caso, la opción default que es *localhost*) sobre la que va a correr y asignamos el puerto (*8080*) por el que va a escuchar.
+
+Creamos la carpeta **routes** y dentro creamos tres archivos: **movies.js**, **reviewers.js** y **publications.js*.
+
+Dentro del archivo **movies.js** añadimos el siguiente contenido:
+
+~~~
+const express = require('express')
+const router = express.Router()
+
+// Handle incoming GET request to /movies
+router.get('/', (req, res, next) => {
+  res.status(200).json({
+    message: 'Handling GET request to /movies'
+  })
+})
+
+router.post('/', (req, res, next) => {
+  const movie = {
+    name: req.body.name,
+    price: req.body.price
+  }
+  res.status(201).json({
+    message: 'Handling POST request to /movies',
+    createdMovie: movie
+  })
+})
+
+router.get('/:movieID', (req, res, next) => {
+  const id = req.params.movieID
+  if (id === 'holi') {
+    res.status(200).json({
+      message: 'You discovered the holi ID'
+    })
+  } else {
+    res.status(200).json({
+      message: 'You passed an ID'
+    })
+  }
+})
+
+router.patch('/:movieID', (req, res, next) => {
+  res.status(200).json({
+    message: 'Updated movie!'
+  })
+})
+
+router.delete('/:movieID', (req, res, next) => {
+  res.status(200).json({
+    message: 'Deleted movie!'
+  })
+})
+
+module.exports = router
+~~~
+
+Lo que hicimos fue crear todos los *endpoint* que definimos en un principio, es decir: GET, POST, PATCH y DELETE. Y como contenido agregamos unos mensajes para hacer la prueba.
+
+Dentro del archivo **reviewers.js** añadimos el mismo contenido de **movies.js**, cambiando *movies* por *reviewers*.
+
+Dentro del archivo **publications.js** añadimos el mismo contenido de **movies.js**, cambiando *movies* por *publications*.
+
+**Nota:** por ahora nos centramos en crear nuestros *endpoints* y verificar que funcionan adecuadamente mostrando simples mensajes.
+
+A continuación, vamos a mostrar el resultado de hacer petición a todos los *endpoints* definidos utilizando **postman**.
+
+![Prueba GET](/images/implementacionBackend/GET.png)
+
+![Prueba GET con ID](/images/implementacionBackend/GETwithID.png)
+
+![Prueba POST](/images/implementacionBackend/POST.png)
+
+![Prueba PATCH](/images/implementacionBackend/PATCH.png)
+
+![Prueba DELETE](/images/implementacionBackend/DELETE.png)
 
 #### Database
 
@@ -256,6 +400,14 @@ Se creará automáticamente una carpeta **report** con el reporte HTML. Para vis
 
 ---
 
+### Problemas encontrados
+
+1. Si se olvida de poner *module.exports = router* aparece el siguiente error:
+
+[...] throw new TypeError('Router.use() requires a middleware function but got a ' + gettype(fn)) [...]
+
+---
+
 ### Referencias
 
 https://scotch.io/tutorials/building-and-securing-a-modern-backend-api
@@ -263,5 +415,7 @@ https://scotch.io/tutorials/building-and-securing-a-modern-backend-api
 https://github.com/holgiosalos/workshop-api-testing-js/
 
 https://developer.mozilla.org/es/docs/Web/HTTP/Methods
+
+https://victorroblesweb.es/2018/01/02/instalar-dependencias-con-npm-api-restful-nodejs/
 
 https://www.paradigmadigital.com/dev/testeando-javascript-mocha-chai/
