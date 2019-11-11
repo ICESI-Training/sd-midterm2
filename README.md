@@ -255,6 +255,34 @@ A continuación, vamos a mostrar el resultado de hacer petición a todos los *en
 
 #### Database
 
+Para almacenar nuestra información vamos a utilizar **Firebase**, una base de datos no relacional.
+
+Instalamos el SDK de administrador de Firebase, ejecutando el siguiente comando en la terminal de Visual Studio Code:
+
+~~~
+npm install --save firebase-admin
+~~~
+<Descripción de carpetas y/o archivos creados>
+~~~
+const admin = require('firebase-admin')
+const serviceAccount = require('./distribuidos-parcial-firebase-adminsdk-3cv6g-4a8a72776d.json')
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://distribuidos-parcial.firebaseio.com'
+})
+
+const db = admin.database()
+const ref = db.ref('distribuidos-parcial')
+
+const usersRef = ref.child('users')
+usersRef.set({
+  nombre: 'Cristian Morales'
+})
+~~~
+
+Primero importamos el módulo de Firebase. Segundo, leemos el archivo *distribuidos-parcial-firebase-adminsdk-3cv6g-4a8a72776d.json* que cuenta con las credenciales de autenticación de Firebase. Tercero, inicializamos el SDK. Cuarto, inicializamos la base de datos y la referencia a nuestro proyecto. <...>
+
 ---
 
 ### Pruebas unitarias
