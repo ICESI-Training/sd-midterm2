@@ -9,8 +9,13 @@ router.get('/', (req, res, next) => {
 })
 
 router.post('/', (req, res, next) => {
+  const movie = {
+    name: req.body.name,
+    price: req.body.price
+  }
   res.status(201).json({
-    message: 'Handling POST request to /movies'
+    message: 'Handling POST request to /movies',
+    createdMovie: movie
   })
 })
 

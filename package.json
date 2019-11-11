@@ -19,6 +19,7 @@
     "homepage": "https://github.com/JuanesApps/sd-midterm2#readme",
     "dependencies": {
         "auth0-api-jwt-rsa-validation": "0.0.3",
+        "body-parser": "^1.19.0",
         "express": "^4.17.1",
         "express-jwt": "^5.3.1",
         "mochawesome": "^4.1.0",
