@@ -4,7 +4,8 @@
     "description": "Parcial 2 - Distribuidos",
     "main": "index.js",
     "scripts": {
-        "test": "mocha -t 5000 --reporter mochawesome --reporter-options reportDir=report,reportFilename=ApiTesting"
+        "test": "mocha -t 5000 --reporter mochawesome --reporter-options reportDir=report,reportFilename=ApiTesting",
+        "start": "nodemon ./api/server.js"
     },
     "repository": {
         "type": "git",
@@ -21,12 +22,14 @@
         "express": "^4.17.1",
         "express-jwt": "^5.3.1",
         "mochawesome": "^4.1.0",
+        "morgan": "^1.9.1",
         "superagent": "^5.1.0",
         "superagent-promise": "^1.1.0"
     },
     "devDependencies": {
         "chai": "^4.2.0",
         "http-status-codes": "^1.4.0",
-        "mocha": "^6.2.2"
+        "mocha": "^6.2.2",
+        "nodemon": "^1.19.4"
     }
 }
