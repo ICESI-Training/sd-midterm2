@@ -106,6 +106,9 @@ Creamos el archivo **server.js** en la raíz del proyecto.
 // Insertar código aquí después de entender cómo funciona
 ~~~
 
+Nota: si se olvida de poner module.exports = router aparece el siguiente error
+[...] throw new TypeError('Router.use() requires a middleware function but got a ' + gettype(fn)) [...]
+
 #### Database
 
 ---
