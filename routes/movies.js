@@ -12,6 +12,7 @@ router.post('/', (req, res, next) => {
   const movie = {
     name: req.body.name,
     price: req.body.price
+    // name: { type: String, required: true }
   }
   res.status(201).json({
     message: 'Handling POST request to /movies',
