@@ -4,7 +4,7 @@ export PYTHONPATH=$PYTHONPATH:`pwd`
 LC_ALL=en_US.UTF-8
 LANG=en_US.UTF-8
 VERBOSE=--verbose
-API_PATH=gm_analytics/swagger/indexer.yaml
+API_PATH=src/swagger/indexer.yaml
 PORT=5000
 ORIGIN=0.0.0.0
 
@@ -14,4 +14,5 @@ then
   DEBUG=--debug
 fi
 
+export PATH=$PATH:/home/distribuidos/.local/bin
 connexion run $API_PATH -p $PORT -H $ORIGIN $VERBOSE $DEBUG 

@@ -1,0 +1,68 @@
+swagger: '2.0'
+
+info:
+  title: User API
+  version: "1.0.0"
+
+paths:
+  /users/{username}:
+    get:
+      x-swagger-router-controller: src
+      operationId: handlers.get_user_info
+      summary: Returns user information.
+      parameters:
+        - name: username
+          in: path
+          required: true
+          type: string
+          format: path
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            $ref: '#/definitions/User'
+  /users/{username}/commits:
+    get:
+      x-swagger-router-controller: src
+      operationId: handlers.get_commits
+      summary: Returns commits in a time range.
+      parameters:
+        - name: username
+          in: path
+          required: true
+          type: string
+          format: path
+        - name: start_date
+          in: query
+          type: string
+        - name: end_date
+          in: query
+          type: string
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            type: string
+          examples:
+            "text/plain": "commits list"
+
+definitions:
+  User:
+    type: object
+    required:
+      - username
+      - id
+      - role
+    properties:
+      username:
+        type: string
+        description: User username
+        example: john.doe
+      id:
+        type: string
+        description: User id
+        example: 123
+      role:
+        type: string
+        description: User role
+        example: collaborator
