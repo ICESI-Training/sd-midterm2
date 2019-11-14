@@ -228,19 +228,19 @@ Siguiendo con el parcial y el archivo ***travis.yml***, se corre un script que r
 
 -------
 
-**[ travis.yml ] Archivo detallado de travis**
+**[ travis.yml ]** Archivo detallado de travis
 
-**[ config.py ] Archivo en el cual se configura la base de datos ( con el nombre students ) , en este caso mongo.**
+**[ config.py ]** Archivo en el cual se configura la base de datos ( con el nombre students ) , en este caso mongo.
 
-**[ requierements.txt ] Archivo que define lo que se debe instalar para el proyecto, los requerimientos.**
+**[ requierements.txt ]** Archivo que define lo que se debe instalar para el proyecto, los requerimientos.
 
-**[ requierements_dev.txt ] Archivo que define lo que se debe instalar para el proyecto en desarrollo, los requerimientos.**
+**[ requierements_dev.txt ]** Archivo que define lo que se debe instalar para el proyecto en desarrollo, los requerimientos.
 
-**[ run.py ] Archivo donde se inicializa la aplicación y se configuran logs.**
+**[ run.py ]** Archivo donde se inicializa la aplicación y se configuran logs.
 
-**[ tox.init ] Archivo donde está la configuración de tox para las pruebas.**
+**[ tox.init ]** Archivo donde está la configuración de tox para las pruebas.
 
-**[ deploy.sh ] Script que ejecuta la aplicación.**
+**[ deploy.sh ]** Script que ejecuta la aplicación.
 
 
 ## Documentación de las tareas para desplegar los microservicios en una máquina local
@@ -282,3 +282,9 @@ Para ver un poco de peticios cURL sobre la api, nos direccionaremos a la página
 
 
 *****Problemas encontrados y las acciones efectuadas para darles solucion******
+
+1. Definicion de archivo de **OpenApi**
+
+2. Uso e instalacion de la libreria **Connexion**
+
+3. Instalacion y Uso de **Python** en Ubuntu.
