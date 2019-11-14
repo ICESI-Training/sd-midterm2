@@ -185,8 +185,8 @@ Evidencia de lo que muestra Swagger cuando se le oprime al método delete.
 Travis-CI es un sistema de Integración Continua, gratuita para proyectos Open Source y de pago para proyectos privados. Se integra sin problemas con GitHub y automáticamente ejecuta el pipeline definido en cada push o pull requests. Testea y buildea aplicaciones escritas en Ruby, Node, Objective-C, Go, Java, C# y F#, entre otras (que corran en Linux).
 
 Para esto se creo el archivo *travis.yml* en el cual se ingresa la documentación para poder realizar el proceso de pruebas automáticas con travis, se define que el lenguaje utilizado fue python, que no se quiere recibir notificaciones por correo, luego se define también la versión del python que es 3.6, se instala el tox-travis ( se va a utilizar tox con travis ).
--------------------------------------------------------------------------
-[ Documentación de Tox ]
+
+## [ Documentación de Tox ]
 
 [ Referencia de Tox https://mviera.io/blog/automatizando-con-tox/ ]
 
