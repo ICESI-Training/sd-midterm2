@@ -198,40 +198,47 @@ Tox es un gestor de virtualenvs y una herramienta para realizar tests en linea d
 ------------------------------------------------------------------------- 
 Siguiendo con el parcial y el archivo ***travis.yml***, se corre un script que realiza los test.
 
-[ pantallazo ] 
+## Evidencia de las pruebas en travis
+
+![Alt text](capturas/travis1.png?raw=true "Travis")
+
+![Alt text](capturas/travis2.png?raw=true "Travis")
+
+![Alt text](capturas/travis3.png?raw=true "Travis")
+
 
 
 ****  Archivos fuentes en el repositorio de los microservicios implementados. ****
 
-[ App ]
+##[ App ]
 
-[ __init__.py ] Código de inicialización de Flask
+	[ __init__.py ] Código de inicialización de Flask
 
-[ helpers.py ] 
+	[ helpers.py ] Toma la url completa y parsea los queries.
 
-[ openapi.yaml ] Documentación con Swagger
+	[ openapi.yaml ] Documentación con Swagger
 
-[ usersData.py ] Lógica de la aplicación. Clase en la que se encuentra la implementación de la api.
+	[ usersData.py ] Lógica de la aplicación. Clase en la que se encuentra la implementación del backend de la api.
 
 --------
 
-[ Test ]
+##[ Test ]
 
-[ test_userData.py ] Clase en la cual se prueba los métodos de la api.
+	[ test_userData.py ] Clase en la cual se prueba los métodos de la api.
 
 -------
 
-[ travis.yml ] Archivo detallado de travis
+##[ travis.yml ] Archivo detallado de travis
 
-[ config.py ] Archivo en el cual se configura la base de datos ( con el nombre students ) , en este caso mongo.
+##[ config.py ] Archivo en el cual se configura la base de datos ( con el nombre students ) , en este caso mongo.
 
-[ requierements.txt ] Archivo que define lo que se debe instalar para el proyecto, los requerimientos.
+##[ requierements.txt ] Archivo que define lo que se debe instalar para el proyecto, los requerimientos.
 
-[ requierements_dev.txt ] Archivo que define lo que se debe instalar para el proyecto en desarrollo, los requerimientos.
+##[ requierements_dev.txt ] Archivo que define lo que se debe instalar para el proyecto en desarrollo, los requerimientos.
 
-[ run.py ] Archivo donde se inicializa la aplicación y se configuran logs.
+##[ run.py ] Archivo donde se inicializa la aplicación y se configuran logs.
 
-[ tox.init ] Archivo donde está la configuración de tox para las pruebas.
+##[ tox.init ] Archivo donde está la configuración de tox para las pruebas.
 
 [ deploy.sh ] Script que ejecuta la aplicación.
 
@@ -247,25 +254,31 @@ Para hacer el despliegue de los servicios en una máquina local se debe seguir e
 
 2. Se debe correr el script deploy.sh, así que en la carpeta raíz de la aplicación hacer lo siguiente
 
-  [ correr deploy ]
+  sudo /deploy.sh
 
 3. 
     Desde el navegador se ingresa a localhost por el puerto 5000.
 
+![Alt text](capturas/localhost.png?raw=true "Localhost")
 
 
-
-
-
-****  Evidencias del despliegue. ****
+##  Evidencias del despliegue 
 
 Para ver un poco de peticios cURL sobre la api, nos direccionaremos a la página de la interfaz gráfica de Swagger, daremos click en uno de los métodos y luego daremos click en Try it out!
 
-[ imagen de lo que aparece con get ]
+## Curl de get
 
-[ imagen de lo que aparece con post ]
+![Alt text](capturas/curl-get.png?raw=true "curl")
 
-[ imagen de lo que aparece con delete ]
+## Curl de post para crear
+
+![Alt text](capturas/post-crear.png?raw=true "curl")
+
+## Curl de delete
+
+![Alt text](capturas/curl-delete1.png?raw=true "curl")
+
+![Alt text](capturas/curl-delete2.png?raw=true "curl")
 
 
 *****Problemas encontrados y las acciones efectuadas para darles solucion******
