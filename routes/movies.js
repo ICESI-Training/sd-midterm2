@@ -147,8 +147,8 @@ router.delete('/:movieID', (req, res, next) => {
           title: 'String',
           release: 'Number',
           score: 'Number',
-          reviewer: 'Number',
-          publication: 'Number'
+          reviewer: 'String',
+          publication: 'String'
         }
       }
     })

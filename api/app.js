@@ -13,8 +13,6 @@ mongoose.connect('mongodb+srv://admin:PASSWORD@clusterparcial2-vrxdh.mongodb.net
 })
 
 const movieRoutes = require('../routes/movies')
-const reviewRoutes = require('../routes/reviewers')
-const publicationRoutes = require('../routes/publications')
 
 app.use(morgan('dev'))
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -22,7 +20,5 @@ app.use(bodyParser.json())
 
 // Routes which should handle request
 app.use('/movies', movieRoutes)
-app.use('/reviewers', reviewRoutes)
-app.use('/publications', publicationRoutes)
 
 module.exports = app
