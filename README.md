@@ -3,22 +3,21 @@ Examen 2
 
 Universidad ICESI
 Curso: Sistemas Operativos
-Docente: Daniel Barragán C.
+Docente: Juan Manuel Alvarez
 Tema: Diseño de arquitectura de Microservicios
 
+## Integrantes
+
 Estudiante: Sebastian Calero
-Código: 
-Github: 
+Código: A00065884
 
 Estudiante: Felipe Cortés 
 Código: A00077528
-Github:
-
 
 Objetivo: Diseñar una aplicación que cuente con una arquitectura de microservicios.
 
 
-Tecnologías utilizadas 
+## Tecnologías utilizadas 
 
 
     Open API
@@ -31,26 +30,26 @@ Solución
 
 [ Referencia : https://juanda.gitbooks.io/webapps/content/api/arquitectura-api-rest.html ]
 
-Qué es una API
+**Qué es una API**
 
     Es una forma de describir como los programas o los sitios webs intercambian datos.
     El formato de intercambio de datos normalmente es JSON o XML.
 
-¿Para qué necesitamos una API?
+**¿Para qué necesitamos una API?**
 
     Ofrecer datos a aplicaciones que se ejecutan en un movil
     Ofrecer datos a otros desarrolladores con un formato más o menos estándar.
     Ofrecer datos a nuestra propia web/aplicación
     Consumir datos de otras aplicaciones o sitios Web
 
-Provedores de APIs
+**Provedores de APIs**
 
     Algunos ejemplos de sitios web que proveen de APIS son:
         Twitter: acceso a datos de usuarios, estado
         Google: por ejemplo para consumir un mapa de Google
     Pero hay muchos más: Facebook, YouTube, Amazon, foursquare..
 
-Qué significa API REST
+**Qué significa API REST**
 
     REST viene de, REpresentational State Transfer
     Es un tipo de arquitectura de desarrollo web que se apoya totalmente en el estándar HTTP.
@@ -59,11 +58,11 @@ Qué significa API REST
     Restful = adjetivo, Rest = Nombre
 
 
-****Como funciona REST****
+## Como funciona REST
 
 ****Llamadas al API
 
-    **Las llamadas al API se implementan como peticiones HTTP, en las que:**
+    *Las llamadas al API se implementan como peticiones HTTP, en las que:*
         La URL representa el recurso
 		http://www.formandome.es/api/cursos/1
 
@@ -97,7 +96,7 @@ http://eventos.com/api/eventos/3/comentarios
     ¿Qué URL tiene el recurso recién creado?
         La convención en REST es devolverla en la respuesta como valor de la cabecera HTTP Location
 
-Actualización de recursos
+****Actualización de recursos****
 
     Método PUT
         Según la ortodoxia REST, actualizar significaría cambiar TODOS los datos
@@ -139,7 +138,7 @@ Actualización de recursos
 Para el presente trabajo cabe aclarar que se utilizó Python 3.6. De la misma manera, se hizo uso de un Framework más pequeño llamado Flask para realizar el Api.
 Para lo anteriormente mencionado se usó el paquete connexion y la especificación de su uso se realiza en el archivo openapi.yaml.
 
-En detalle, openapi.yaml tienes los servicios de la api ( los métodos con cada una de sus rutas ) y cada método cuenta con sus respectivas respuestas.
+En detalle, **openapi.yaml** tienes los servicios de la api ( los métodos con cada una de sus rutas ) y cada método cuenta con sus respectivas respuestas.
 
 Se utilizó la aplicación con interfaz gráfica que ofrece Swagger para ver más detalladamente la información y esto fue lo que se obtuvo.
 
@@ -147,10 +146,10 @@ Se utilizó la aplicación con interfaz gráfica que ofrece Swagger para ver má
 ****Evidencias de la documentación de la API de conformidad con el estándar****
 
 
-
-
-
 [ Imagen de Swagger ] con el servicio
+
+![Alt text](capturas/swagger1.png?raw=true "Swagger")
+
 
 [ Imagen de Swagger del Get ]
 
