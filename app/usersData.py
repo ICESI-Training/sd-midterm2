@@ -18,7 +18,7 @@ collection = db.User
 
 #@app.route("/")
 def get_initial_response():
-    """Welcome Jmaquin0 for the API."""
+    """Welcome Jmaquin0 to the API."""
     # Message to the user
     message = {
         'apiVersion': 'v1.0.0',
