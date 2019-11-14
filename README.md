@@ -208,7 +208,7 @@ Siguiendo con el parcial y el archivo ***travis.yml***, se corre un script que r
 
 
 
-****  Archivos fuentes en el repositorio de los microservicios implementados. ****
+##  Archivos fuentes en el repositorio de los microservicios implementados
 
 ##[ App ]
 
