@@ -283,8 +283,14 @@ Para ver un poco de peticios cURL sobre la api, nos direccionaremos a la página
 
 *****Problemas encontrados y las acciones efectuadas para darles solucion******
 
-1. Definicion de archivo de **OpenApi**
+1. Definicion de archivo de configuracion **OpenApi**
 
 2. Uso e instalacion de la libreria **Connexion**
 
 3. Instalacion y Uso de **Python** en Ubuntu.
+
+4. Integracion de **Travis CI** para la automatización de pruebas
+
+   4.1 Configuracion del ambiente de pruebas
+   
+   4.2 Definicion de las pruebas
