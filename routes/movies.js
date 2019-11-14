@@ -109,21 +109,13 @@ router.patch('/:movieID', (req, res, next) => {
   for (const ops of req.body) {
     updateOps[ops.propName] = ops.value
   }
-  Movie.update({ _id: id }, { $set: { updateOps } }).exec().then(result => {
+  Movie.update({ _id: id }, { $set: updateOps }).exec().then(result => {
     console.log(result)
     res.status(200).json({
       message: 'Updated movie successfully',
-      updatedMovie: {
-        title: result.title,
-        release: result.release,
-        score: result.score,
-        reviewer: result.reviewer,
-        publication: result.publication,
-        _id: result._id,
-        request: {
-          type: 'GET',
-          url: 'http://localhost:8080/movies/' + result._id
-        }
+      request: {
+        type: 'GET',
+        url: 'http://localhost:8080/movies/' + id
       }
     })
   }).catch(err => {
@@ -133,7 +125,6 @@ router.patch('/:movieID', (req, res, next) => {
     })
   })
 })
-// si falla cambiar _id por id
 
 router.delete('/:movieID', (req, res, next) => {
   const id = req.params.movieID
