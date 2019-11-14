@@ -60,7 +60,7 @@ Solución
 
 ## Como funciona REST
 
-****Llamadas al API
+**Llamadas al API
 
     *Las llamadas al API se implementan como peticiones HTTP, en las que:*
         La URL representa el recurso
@@ -78,7 +78,7 @@ GET http://www.formandome.es/api/cursos/1
 404 NOT FOUND HTTP/1.1
 
 
-****Creación de recursos****
+***Creación de recursos***
 
     La URL estará “abierta” (el recurso todavía no existe y por tanto no tiene id)
     El método debe ser POST
@@ -86,7 +86,7 @@ GET http://www.formandome.es/api/cursos/1
 http://eventos.com/api/eventos/3/comentarios
 
 
-****Respuesta a la creación de recursos****
+***Respuesta a la creación de recursos***
 
     Resultados posibles:
         403 (Acceso prohibido)
@@ -96,7 +96,7 @@ http://eventos.com/api/eventos/3/comentarios
     ¿Qué URL tiene el recurso recién creado?
         La convención en REST es devolverla en la respuesta como valor de la cabecera HTTP Location
 
-****Actualización de recursos****
+***Actualización de recursos***
 
     Método PUT
         Según la ortodoxia REST, actualizar significaría cambiar TODOS los datos
@@ -106,7 +106,7 @@ http://eventos.com/api/eventos/3/comentarios
         201 (Recurso creado, cuando le pasamos el id deseado al servidor)
         200 (Recurso modificado correctamente)
 
-****Eliminar recursos****
+***Eliminar recursos***
 
     Método DELETE
     Algunos resultados posibles:
@@ -116,7 +116,7 @@ http://eventos.com/api/eventos/3/comentarios
     Tras ejecutar el DELETE con éxito, las siguientes peticiones GET a la URL del recurso deberían devolver 404
 
 
-****HTTP verbs****
+***HTTP verbs***
 
     Si realizamos CRUD, debemos utilizar los HTTP verbs de forma adecuada para cuidar la semántica.
         GET: Obtener datos. Ej: GET /v1/empleados/1234
@@ -124,7 +124,7 @@ http://eventos.com/api/eventos/3/comentarios
         POST: Crear un nuevo recurso. Ej: POST /v1/empleados
         DELETE: Borrar el recurso. Ej: DELETE /v1/empleados/1234
 
-****Nombre de los recursos****
+***Nombre de los recursos***
 
     Plural mejor que singular, para lograr uniformidad:
         Obtenemos un listado de clientes: GET /v1/clientes
@@ -133,7 +133,7 @@ http://eventos.com/api/eventos/3/comentarios
     Evita guión y guiones bajos
     Utiliza nombres y no verbos
 
-****Documentación de la API de conformidad con el estándar****
+***Documentación de la API de conformidad con el estándar***
 
 Para el presente trabajo cabe aclarar que se utilizó Python 3.6. De la misma manera, se hizo uso de un Framework más pequeño llamado Flask para realizar el Api.
 Para lo anteriormente mencionado se usó el paquete connexion y la especificación de su uso se realiza en el archivo openapi.yaml.
@@ -143,7 +143,7 @@ En detalle, **openapi.yaml** tienes los servicios de la api ( los métodos con c
 Se utilizó la aplicación con interfaz gráfica que ofrece Swagger para ver más detalladamente la información y esto fue lo que se obtuvo.
 
 
-****Evidencias de la documentación de la API de conformidad con el estándar****
+***Evidencias de la documentación de la API de conformidad con el estándar***
 
 
 ## [ Imagen de Swagger ]
