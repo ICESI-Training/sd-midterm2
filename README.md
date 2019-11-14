@@ -255,33 +255,56 @@ A continuación, vamos a mostrar el resultado de hacer petición a todos los *en
 
 #### Database
 
-Para almacenar nuestra información vamos a utilizar **Firebase**, una base de datos no relacional.
+Usamos Mongodb Atlas, que básicamente, es mongodb en la nube.
 
-Instalamos el SDK de administrador de Firebase, ejecutando el siguiente comando en la terminal de Visual Studio Code:
+Instalamos la dependencia **mongoose** ejecutando el siguiente comando por la terminal de Visual Studio Code:
 
 ~~~
-npm install --save firebase-admin
+npm install --save mongoose
 ~~~
-<Descripción de carpetas y/o archivos creados>
-~~~
-const admin = require('firebase-admin')
-const serviceAccount = require('./distribuidos-parcial-firebase-adminsdk-3cv6g-4a8a72776d.json')
 
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: 'https://distribuidos-parcial.firebaseio.com'
+**password.txt** para la contraseña
+
+Como es información confidencial, no se deben subir al repositorio por ningún motivo. Lo que hacemos es agregar el archivo **password.txt** al archivo **.gitignore**, de la siguiente manera.
+
+~~~
+## Mongodb Atlas authentication ##
+password.txt
+password.json
+~~~
+
+Vamos a la carpeta **api** e ingresamos al archivo **app.js**.
+
+~~~
+const mongoose = require('mongoose')
+
+mongoose.connect('mongodb+srv://admin:PASSWORD@clusterparcial2-vrxdh.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true }).then(() => {
+  console.log('connection to database establish')
+}).catch(err => {
+  console.log(err)
+  process.exit(-1)
 })
-
-const db = admin.database()
-const ref = db.ref('distribuidos-parcial')
-
-const usersRef = ref.child('users')
-usersRef.set({
-  nombre: 'Cristian Morales'
-})
 ~~~
 
-Primero importamos el módulo de Firebase. Segundo, leemos el archivo *distribuidos-parcial-firebase-adminsdk-3cv6g-4a8a72776d.json* que cuenta con las credenciales de autenticación de Firebase. Tercero, inicializamos el SDK. Cuarto, inicializamos la base de datos y la referencia a nuestro proyecto. <...>
+Mongo (maybe mongoose) manera models..
+Creamos la carpeta **models** en la raíz del proyecto y dentro creamos el archivo **movies.js**.
+
+~~~
+<código>
+~~~
+
+En la carpeta **routes**, ingresamos al archivo **movies.js**.
+
+~~~
+const mongoose = require('mongoose')
+const Movie = require('../models/movies')
+~~~
+
+<Hacer una descripción de cada método y poner el código>
+
+<Poner el código completo>
+
+<Insertar imágenes de postman>
 
 ---
 
@@ -326,7 +349,7 @@ npm test
 Para desplegar nuestra API ejecutamos el siguiente comando en la terminal de Visual Studio Code:
 
 ~~~
-node server
+npm start
 ~~~
 
 Después abrimos el navegador web de nuestra preferencia y accedemos al siguiente endpoint:
@@ -360,20 +383,6 @@ except:
 Habilitamos Travis en el repositorio
 
 <Insertar imagen>
-
-Creamos el archivo **.nvmrc** en la raíz del proyecto.
-
-Dentro de dicho archivo agregamos la versión de NodeJS que se está utilizando. En este caso:
-
-~~~
-v12.6.0
-~~~
-
-**Nota:** en caso de no saber la versión de NodeJS que se está utilizando se puede ejecutar el siguiente comando por la terminal de Visual Studio Code:
-
-~~~
-node -v > .nvmrc
-~~~
 
 Vamos al archivo **package.json**, buscamos el objeto **scripts** (en nuestro caso ubicado en la línea 6), dentro buscamos el objeto **test** (en nuestro caso ubicado en la línea 7) y agregamos a su contenido *-t 5000*.
 
@@ -430,9 +439,9 @@ Se creará automáticamente una carpeta **report** con el reporte HTML. Para vis
 
 ### Problemas encontrados
 
-1. Si se olvida de poner *module.exports = router* aparece el siguiente error:
+1. Cuando olvidabamos poner *module.exports = <componente>* se generaba un error en el archivo *.js* que esta haciendo una importación de dicho componente.
 
-[...] throw new TypeError('Router.use() requires a middleware function but got a ' + gettype(fn)) [...]
+2. En la conexión con la base de datos tuvimos varios problemas. ***Primero:*** planteamos utilizar Firebase como nuestra base de datos, pero nos estaba costando bastante trabajo. Al utilizar Mongodb Atlas se nos facilitó bastante avanzar dado que es bastante intuitiva. ***Segundo:*** no estabamos creando una variable de entorno con la contraseña, por ende, decía que no entraba la variable. ***Tercero:*** el tutorial con el que nos ayudamos tenía una versión vieja de mongoose: entonces la línea de código encargada de hacer la conexión tiraba error y decía que estaba deprecated.
 
 ---
 
@@ -447,3 +456,5 @@ https://developer.mozilla.org/es/docs/Web/HTTP/Methods
 https://victorroblesweb.es/2018/01/02/instalar-dependencias-con-npm-api-restful-nodejs/
 
 https://www.paradigmadigital.com/dev/testeando-javascript-mocha-chai/
+
+https://www.youtube.com/watch?v=0oXYLzuucwE&list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q&index=1
