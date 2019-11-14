@@ -146,7 +146,7 @@ Se utilizó la aplicación con interfaz gráfica que ofrece Swagger para ver má
 ****Evidencias de la documentación de la API de conformidad con el estándar****
 
 
-[ Imagen de Swagger ] con el servicio
+**[ Imagen de Swagger ]**
 
 ![Alt text](capturas/swagger1.png?raw=true "Swagger")
 
