@@ -60,7 +60,7 @@ Solución
 
 ## Como funciona REST
 
-**Llamadas al API
+**Llamadas al API**
 
     *Las llamadas al API se implementan como peticiones HTTP, en las que:*
         La URL representa el recurso
