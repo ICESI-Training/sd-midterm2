@@ -1,0 +1,74 @@
+openapi: 3.0.0
+info:
+  title: User API
+  version: 0.2.0
+paths:
+  "/users/{username}":
+    get:
+      operationId: handlers.get_user_info
+      summary: Returns user information.
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+            format: path
+      responses:
+        "200":
+          description: Successful response.
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/User"
+  "/users/{username}/commits":
+    get:
+      operationId: handlers.get_commits
+      summary: Returns commits in a time range.
+      parameters:
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+            format: path
+        - name: start_date
+          in: query
+          schema:
+            type: string
+        - name: end_date
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successful response.
+          content:
+            "*/*":
+              schema:
+                type: string
+            text/plain:
+              examples:
+                response:
+                  value: commits list
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - username
+        - id
+        - role
+      properties:
+        username:
+          type: string
+          description: User username
+          example: john.doe
+        id:
+          type: string
+          description: User id
+          example: 123
+        role:
+          type: string
+          description: User role
+          example: collaborator

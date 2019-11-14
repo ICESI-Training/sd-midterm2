@@ -1,3 +1,5 @@
+import connexion
+
 def get_user_info(username):
     
     import pymongo
@@ -13,3 +15,8 @@ def get_user_info(username):
 
 def get_commits(username, start_date, end_date):
     return 'commits list'
+
+if __name__ == '__main__':
+    app = connexion.FlaskApp(__name__, port=5000, specification_dir='openapi/')
+    app.add_api('indexer.yaml', arguments={'title': 'user api'})
+    app.run()
