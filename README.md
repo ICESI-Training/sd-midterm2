@@ -150,12 +150,26 @@ Se utilizó la aplicación con interfaz gráfica que ofrece Swagger para ver má
 
 ![Alt text](capturas/swagger1.png?raw=true "Swagger")
 
+![Alt text](capturas/swagger2.png?raw=true "Swagger")
 
-[ Imagen de Swagger del Get ]
+**[ Imagen de Swagger del Get ]**
+
+![Alt text](capturas/get1.png?raw=true "get")
+
+![Alt text](capturas/get2.png?raw=true "get")
+
 
 [ Imagen de Swagger del Post ]
 
+![Alt text](capturas/post-crear.png?raw=true "post-crear")
+
+![Alt text](capturas/post-actualizar.png?raw=true "post-actualizar")
+
+
 [ Imagen de Swagger del Delete ]
+
+![Alt text](capturas/delete.png?raw=true "post-delete")
+
 
 ****Pruebas de cada servicio con Travis-CI****
 
