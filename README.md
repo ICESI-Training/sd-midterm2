@@ -146,27 +146,34 @@ Se utilizó la aplicación con interfaz gráfica que ofrece Swagger para ver má
 ****Evidencias de la documentación de la API de conformidad con el estándar****
 
 
-**[ Imagen de Swagger ]**
+## [ Imagen de Swagger ]
+
+Evidencia de los métodos http del Swagger UI y la colección de Users
 
 ![Alt text](capturas/swagger1.png?raw=true "Swagger")
 
 ![Alt text](capturas/swagger2.png?raw=true "Swagger")
 
-**[ Imagen de Swagger del Get ]**
+Evidencia de lo que muestra Swagger cuando se le oprime al método get.
+
+## [ Imagen de Swagger del Get ]**
 
 ![Alt text](capturas/get1.png?raw=true "get")
 
 ![Alt text](capturas/get2.png?raw=true "get")
 
+Evidencia de lo que muestra Swagger cuando se le oprime al método post, al de actualizar y al de crear .
 
-[ Imagen de Swagger del Post ]
+## [ Imagen de Swagger del Post ]
 
 ![Alt text](capturas/post-crear.png?raw=true "post-crear")
 
 ![Alt text](capturas/post-actualizar.png?raw=true "post-actualizar")
 
 
-[ Imagen de Swagger del Delete ]
+Evidencia de lo que muestra Swagger cuando se le oprime al método delete.
+
+## [ Imagen de Swagger del Delete ]
 
 ![Alt text](capturas/delete.png?raw=true "post-delete")
 
@@ -177,7 +184,7 @@ Se utilizó la aplicación con interfaz gráfica que ofrece Swagger para ver má
 
 Travis-CI es un sistema de Integración Continua, gratuita para proyectos Open Source y de pago para proyectos privados. Se integra sin problemas con GitHub y automáticamente ejecuta el pipeline definido en cada push o pull requests. Testea y buildea aplicaciones escritas en Ruby, Node, Objective-C, Go, Java, C# y F#, entre otras (que corran en Linux).
 
-Para esto se creo el archivo travis.yml en el cual se ingresa la documentación para poder realizar el proceso de pruebas automáticas con travis, se define que el lenguaje utilizado fue python, que no se quiere recibir notificaciones por correo, luego se define también la versión del python que es 3.6, se instala el tox-travis ( se va a utilizar tox con travis ).
+Para esto se creo el archivo *travis.yml* en el cual se ingresa la documentación para poder realizar el proceso de pruebas automáticas con travis, se define que el lenguaje utilizado fue python, que no se quiere recibir notificaciones por correo, luego se define también la versión del python que es 3.6, se instala el tox-travis ( se va a utilizar tox con travis ).
 -------------------------------------------------------------------------
 [ Documentación de Tox ]
 
@@ -189,7 +196,7 @@ Tox es un gestor de virtualenvs y una herramienta para realizar tests en linea d
     Ejecutar los tests de tu proyecto en cada uno de los entornos.
     Integración Continua (CI = Continuous Integration).
 ------------------------------------------------------------------------- 
-Siguiendo con el parcial y el archivo travis.yml, se corre un script que realiza los test.
+Siguiendo con el parcial y el archivo ***travis.yml***, se corre un script que realiza los test.
 
 [ pantallazo ] 
 
