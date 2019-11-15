@@ -68,13 +68,7 @@ npm init
 
 Después de ejecutarlo aparecen una serie de campos que dejamos en default, excepto por el campo *description* que le pusimos *Parcial 2 - Distribuidos*. Al finalizar se habrá configurado el archivo **package.json**, se habrá creado el archivo **package-lock.json** y se habrá creado el directorio **node_modules**.
 
-Antes de escribir cualquier línea de código, instalamos y guardamos las dependencias que vamos a utilizar. Con ese fin, ejecutamos el siguiente comando por la terminal de Visual Studio Code:
-
-~~~
-npm install express express-jwt auth0-api-jwt-rsa-validation --save
-~~~
-
-La dependencia **express** desplegará el framework express, la librería **express-jwt** nos dará funciones para trabajar con Web Tokens JSON, y finalmente la validación **auth0-api-jwt-rsa** proporcionará una función de ayuda para obtener nuestra clave secreta.
+La dependencia **express** desplegará el framework express.
 
 ---
 
@@ -304,7 +298,44 @@ const Movie = require('../models/movies')
 
 <Poner el código completo>
 
-<Insertar imágenes de postman>
+A continuación mostraremos una pequeña prueba utilizando postman
+
+Ejecutamos el proyecto.
+
+![1](/images/postman/1.png)
+
+Ejecutamos el método GET (sin parámetro), teniendo en cuenta que la base de datos esta vacía. El status de respuesta es 200 y el body muestra el número de películas que hay en la base de datos y los respectivos objetos película. 
+
+![2](/images/postman/2.png)
+
+Ejecutamos el método POST. Lo que hacemos es agregar una película, para lo cual envíamos un body con sus respectivos 5 parámetros: *title*, *release*, *score*, *review* y *publication*. En caso, de que omitamos alguno, tendremos un mensaje de respuesta erróneo y esto se debe a la configuración que le dimos al Schema de mongoose.
+
+![3](/images/postman/3.png)
+![4](/images/postman/4.png)
+
+Ejecutamos el método GET con el ID de la película que creamos para validar que efectivamente se guardó en la base de datos.
+
+![5](/images/postman/5.png)
+
+Ejecutamos el método GET (sin parámetro) como segunda validación de que efectivamente se guardó en la base de datos.
+
+![6](/images/postman/6.png)
+
+Ejecutamos el método PATH con el ID de la película que queramos modificarle uno o más atributos, en este caso solo cambiamos uno (*title*).
+
+![7](/images/postman/7.png)
+
+Ejecutamos el método GET con el ID de la película que modificamos para validar que efectivamente se realizaron los cambios en la base de datos.
+
+![8](/images/postman/8.png)
+
+Ejecutamos el método DELETE para eliminar la película con el ID que pasamos por parámetro.
+
+![9](/images/postman/9.png)
+
+Ejecutamos el método GET (sin parámetro) para validar que se realizó la eliminación de la película de la base de datos.
+
+![10](/images/postman/10.png)
 
 ---
 
