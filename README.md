@@ -107,14 +107,17 @@ Previamente agregamos un nuevo usuario y podemos ver que lista todos los usuario
 ![](images/getUSERS2.PNG)
 
 Para que estos microservicios funcionen es necesario ejecutar los siguientes comandos: 
-- npm install
-- node index.js.
+ script
+ 
+    npm install
+    node index.js.
 
 En caso de tener problemas, borrar la carpeta node_modules y ejecutar:
+script
 
-- npm install express
-- npm install
-- node index.js
+     npm install express
+     npm install
+     node index.js
 
 ## 5. Problemas encontrados y acciones efectuadas
 Los problemas encontrados y las acciones efectuadas fueron las siguientes:
