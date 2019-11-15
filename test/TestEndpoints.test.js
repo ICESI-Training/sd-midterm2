@@ -40,7 +40,7 @@ describe('Api Tests for Users endpoints', () => {
         idnumber: 11438747777
       };
             
-        agent.post('http://localhost:4000/users').send(requestBody).then().catch(
+      await agent.post('http://localhost:4000/users').send(requestBody).then().catch(
             (response)=> {
                 expect(response.status).to.equal(statusCode.BAD_REQUEST);
                 expect(response.response.body.message).to.equal('A user has been created with that number');
@@ -48,7 +48,7 @@ describe('Api Tests for Users endpoints', () => {
   
        
     });
-      //Prueba de Obtener el usuario insertado      
+          
       it('GET all users', async () =>{
       const response = await agent.get('http://localhost:4000/users');
       expect(response.status).to.equal(200);
