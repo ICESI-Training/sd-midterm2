@@ -285,12 +285,32 @@ Para ver un poco de peticios cURL sobre la api, nos direccionaremos a la página
 
 1. Definicion de archivo de configuracion **OpenApi**
 
+   Debido a la sintaxis que maneja el archivo **.yaml** que utilizamos en este caso, se investigo sobre las etiquetas que   
+   se manejan dentro de este formato. Al momento de definir los **schemas** necesarios para darle forma a las respuestas que se querian 
+   mostrar, se tuvieron algunas dificultades. 
+   
+   La pagina consultada para darle solucion a este problema fue:
+   
+   -> https://swagger.io/docs/specification/about/ 
+   
 2. Uso e instalacion de la libreria **Connexion**
 
 3. Instalacion y Uso de **Python** en Ubuntu.
 
+   Al momento de instalar la version de Python en la maquina Ubuntu, se tuvieron dificultades con algunas librerias, por lo que se debio    investigar sobre la instalacion de **Python 3.7** en el **SO** escogido para realizar el desarrollo.
+
 4. Integracion de **Travis CI** para la automatización de pruebas
 
-   4.1 Configuracion del ambiente de pruebas
+   4.1 Configuracion del ambiente de pruebas mediante **tox**
+   
+   Para realizar las pruebas de manera local se esta herramienta, que permite obtener un reporte de la pruebas realizadas en python.
+   Luego se utilizo este mismo ambiente virtual como base para generar el ambiente virtual en **Travis CI**. Se tuvieron dificultades
+   con esta integracion pues no se tenia el conocimiento necesario para realizarlo. Sin embargo, se investigo en la pagina de esta
+   libreria de Python.
+   
+   -> https://tox.readthedocs.io/en/latest/
    
    4.2 Definicion de las pruebas
+   
+   La falta de algunos conocimientos respecto a la libreria **pytest** se debio realizar una investigacion para encontrar la manera de
+   codificar las pruebas.
