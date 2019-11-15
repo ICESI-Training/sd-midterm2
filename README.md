@@ -9,11 +9,7 @@ OpenAPI, originalmente conocida como Swagger Specification, es una especificaci�
 
 La documentación de la API puede visualizarse en el siguiente enlace:
 
-- [Link de OpenAPI](https://editor.swagger.io/?_ga=2.241409030.589783620.1573250410-1798513720.1573250410)
-
-La documentación de la API de manera gráfica puede visualizarse en el siguiente enlace:
-
-- [Link de OpenAPI gráfico]()
+- [Link de OpenAPI](openapi/openapi.yaml)
 
 Sin embargo, se adjuntarán imágenes como evidencia de la documentación:
 
@@ -97,6 +93,7 @@ Para la configuración de MongoDBAtlas se realizó lo siguiente:
 A continuación, una evidencia de los microservicios implementados:
 ![](images/MicroservicesScreenshot.PNG)
 
+![](images/connectClient.PNG)
 En orden se encuentran:
 - **GET** /: Este endpoint hace referencia a la parte de bienvenida a la aplicación. 
 - **POST** /users:  Esta parte es para crear un nuevo usuario. Lo que se realiza es verificar si no hay un usuario creado con el idnumber ingresado para poder hacer efectivamente el registro del nuevo usuario. 
@@ -132,13 +129,13 @@ Se comprueba que cuando no hay usuarios agregados y se pide la lista, se devuelv
 ![](images/getEmptyList.PNG)
 
 Para que estos microservicios funcionen es necesario ejecutar los siguientes comandos: 
- script
+
  
     npm install
     node index.js
 
 En caso de tener problemas, borrar la carpeta node_modules y ejecutar:
-script
+
 
      npm install express
      npm install
@@ -168,7 +165,8 @@ Los problemas encontrados y las acciones efectuadas fueron las siguientes:
         - npm test
     La nueva línea agregada permitía que “se durmiera” por 15ms dándole una espera para que se conectará correctamente a MongoDBAtlas y luego sí ejecutará las pruebas para que salieran exitosas :)
 
-##Bibliografía
+## Bibliografía
+
 OpenApi: https://en.wikipedia.org/wiki/OpenAPI_Specification
 
 MongoDBAtlas: https://www.mongodb.com/presentations/mongodb-atlas-la-mejor-forma-de-utilizar-mongodb-en-la-nube-1
