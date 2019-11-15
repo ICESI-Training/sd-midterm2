@@ -17,10 +17,15 @@ La documentación de la API de manera gráfica puede visualizarse en el siguient
 
 Sin embargo, se adjuntarán imágenes como evidencia de la documentación:
 ![](images/openapi1.PNG)
+
 ![](images/openapi2.PNG)
+
 ![](images/openapi3.PNG)
+
 ![](images/openapi4.PNG)
+
 ![](images/openapi5.PNG)
+
 ![](images/openapi6.PNG)
 
 ## 2. Pruebas unitarias
