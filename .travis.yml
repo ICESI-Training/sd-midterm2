@@ -1,0 +1,16 @@
+language: python
+python:
+  - "2.7"
+
+addons:
+  apt:
+    packages:
+      - ca-certificates
+
+install: "pip install -r requirements.txt"
+
+script:
+  - pytest
+
+
+ 
