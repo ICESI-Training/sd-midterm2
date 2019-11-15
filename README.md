@@ -6,7 +6,11 @@
 
 ## 0. Sobre el proyecto
 
-Este proyecto 
+Este proyecto consta de una aplicación en python que levanta una API Rest cuya documentación tiene conformidad con el estándar OpenAPI, esta API cuenta con diferentes servicios que permiten la gestión de una base de datos de usuarios alojada en un cluster de MongoDB a través de peticiones HTTP.
+
+A continuación se muestra la base de datos y la colección a la que se conectan los servicios de la API
+
+![Alt text](images/atlas.png"App running")
 
 ## 1. Preparación proyecto
 
