@@ -6,8 +6,8 @@ const { expect } = chai;
 
 const requestBody = {
   name: "Daniel",
-  lastname: "Quinter",
-  idnumber: 1143874
+  lastname: "Quintero",
+  idnumber: 11438747777
 };
 
 describe('Api Tests for Users endpoints', () => {
@@ -16,7 +16,7 @@ describe('Api Tests for Users endpoints', () => {
     const response = await agent.get('http://localhost:4000/users');
     expect(response.status).to.equal(200);
     if(response.body.users.length == 0){
-      expect(response.body.message).to.eql('La lista de usuarios aún está vacía');     
+      expect(response.body.message).to.eql('List of users is empty');     
     }    
 
   });
@@ -34,11 +34,11 @@ describe('Api Tests for Users endpoints', () => {
     });
 
     it('POST service with a user already created', async () => {
-        const requestBody = {
-          name: "Sandra",
-          lastname: "Nino",
-          idnumber: 1143874327
-        };
+      const requestBody = {
+        name: "Daniel",
+        lastname: "Quintero",
+        idnumber: 11438747777
+      };
             
         agent.post('http://localhost:4000/users').send(requestBody).then().catch(
             (response)=> {

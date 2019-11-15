@@ -43,7 +43,7 @@ app.get('/users', (req,res) =>{
         }
         if(result.length==0){
            
-           return res.json({ message: 'La lista de usuarios aún está vacía'});
+           return res.json({ message: 'List of users is empty'});
         }
         res.status(200)
         res.json({message:'A list of all users', users: result});

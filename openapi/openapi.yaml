@@ -36,6 +36,27 @@ paths:
               examples:
                 '0':
                   value: "{\n\t\"message\": \"A user has been created with that number\"\n}"
+        '500':
+          description: If exists another error in the service
+  
+    get:
+      description: Retrieve all users
+      responses:
+        '200':
+          description: List of all users or a message if there isn´t any user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Users"
+              examples:
+                '0':
+                  value: "{\n\t\"message\": \"A list of all users\",\n\t\"users\": [ \n\t    {\n\t\t\"name\": \"Sandra\",\n\t\t\"lastname\": \"Nino\",\n\t\t\"idnumber\": 1143874328, \n\t\t\"_id\": \"5dc9fd0257e5234a10c68edc\"\n\t    },\n\t    {\n\t\t\"name\": \"Daniel\",\n\t\t\"lastname\": \"Quintero\",\n\t\t\"idnumber\": 1143874329, \n\t\t\"_id\": \"5dc9fd0257e5234a10c68edd\"\n\t    }\n\t[\n}"
+                '1':
+                  value: "{\n\t\"message\": \"List of users is empty\"\n}"
+                  
+        '500':
+          description: If exists an error in the service
+          
 components:
   schemas:
     UserRequest:
