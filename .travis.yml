@@ -8,7 +8,7 @@ branches:
 except:
 - "/^v\\d+\\.\\d+\\.\\d+$/"
 before_script:
-  - sleep 15
+  - sleep 20
 script:
   - node index.js &
   - npm test
