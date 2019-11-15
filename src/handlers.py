@@ -41,7 +41,7 @@ def insert_user(cc,username):
                         "username": username,
                     }
                 )
-                return 200
+                return 201
             else:
                 return 'Bad Request', 400, {
                     'exists-error': 'The user with the given cc already exists'
