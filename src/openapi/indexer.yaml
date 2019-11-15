@@ -10,17 +10,15 @@ paths:
       responses:
         "200":
           description: Successful response.
-          content:
-            "*/*":
-              schema:
-                $ref: "#/components/schemas/User"
+        "400":
+          description: "Bad Request"
 
-  "/users/{username}":
+  "/users/{cc}":
     get:
       operationId: handlers.get_user
-      summary: Returns the user info.
+      summary: Returns the user info giving its cc.
       parameters:
-        - name: username
+        - name: cc
           in: path
           required: true
           schema:
@@ -35,16 +33,26 @@ paths:
                 type: "array"
                 items:
                   properties:
-                    id:
+                    cc:
                       type: "string"
                     username:
-                      type: "integer"
+                      type: "string"
+        "400":
+          description: "Bad Request"
+        "404":
+          description: "Not found"
 
-  "/users/insert/{username}":
-    get:
+  "/users/insert/{cc}/{username}":
+    post:
       operationId: handlers.insert_user
-      summary: Inserts an user.
+      summary: Inserts an user, needs its cc and username.
       parameters:
+        - name: cc
+          in: path
+          required: true
+          schema:
+            type: string
+            format: path
         - name: username
           in: path
           required: true
@@ -57,22 +65,16 @@ paths:
           content:
             "*/*":
               schema:
-                type: "array"
-                items:
-                  properties:
-                    id:
-                      type: "string"
-                    username:
-                      type: "integer"
+                $ref: "#/components/schemas/User"
         "400":
           description: "Bad Request"
 
-  "/users/delete/{username}":
-    get:
+  "/users/delete/{cc}":
+    delete:
       operationId: handlers.delete_user
       summary: Deletes an user.
       parameters:
-        - name: username
+        - name: cc
           in: path
           required: true
           schema:
@@ -83,18 +85,20 @@ paths:
           description: Successful response.
         "400":
           description: "Bad Request"
+        "404":
+          description: "Not found"
 
 components:
   schemas:
     User:
       type: "array"
       required:
-        - id
+        - cc
         - username
       properties:
-        id:
-          type: integer
-          description: User id
+        cc:
+          type: string
+          description: User cc
           example: 123
         username:
           type: string
