@@ -25,9 +25,11 @@ Los servicios ofrecidos por la API son:
 * insert_user(cc,username): Inserta un usuario con los valores de cc y username pasados por parámetro mediante una petición POST
 * delete_user(cc): Borra el usuario con valor cc igual pasado por parámetro mediante una petición DELETE
 
+A continuación se presentan las tareas necesarias para desplegar los microservicios en una máquina local, cada tarea muestra evidencias de los resultados e información detallada de lo que se debe realizar su despliegue y pruebas.
+
 ## 1. Preparación proyecto
 
-Este proyecto requiere instalar python 3.7 junto a su manejador de paquetes pip, una vez se tiene instalado, se deben correr los siguientes comandos para instalar las librerías necesarias, las cuales se encuentran en el archivo [requirements.txt] (https://github.com/gaearaz/sd-midterm2/blob/master/requirements.txt), para ejecutar la aplicación en localhost por el puerto 5000
+Este proyecto requiere instalar python 3.7 junto a su manejador de paquetes pip, una vez se tiene instalado, se deben correr los siguientes comandos para instalar las librerías necesarias, las cuales se encuentran en el archivo [requirements.txt](https://github.com/gaearaz/sd-midterm2/blob/master/requirements.txt), para ejecutar la aplicación en localhost por el puerto 5000. 
 
 ~~~
     bash
@@ -35,7 +37,7 @@ Este proyecto requiere instalar python 3.7 junto a su manejador de paquetes pip,
     python3 src/handlers.py
 ~~~
 
-Si surge un error al ejecutar la API, ejecutar los siguientes comandos que instalan algunas librerías que pueden no haber quedado instalado adecuadamente debido al interprete de comandos usado.
+Si surge un error al ejecutar la API, ejecutar los siguientes comandos que instalan algunas librerías que pueden no haber quedado instaladas adecuadamente debido al interprete de comandos usado.
 
 ~~~
     python3 -m pip install pymongo[srv]
@@ -48,17 +50,23 @@ Una vez ejectuado esos comandos se espera ver lo siguiente:
 
 ## 2. Documentación de la API con OpenAPI
 
-En el archivo [indexer.yaml] (https://github.com/gaearaz/sd-midterm2/blob/master/src/openapi/indexer.yaml) se encuentra toda la documentación de la API, en este se declaran todos los paths (end points) de los servicios, los tipos de petición HTTP y sus posibles respuestas, así como la función del archivo [handlers.py] (https://github.com/gaearaz/sd-midterm2/blob/master/src/handlers.py) a la que se llama. A continuación se presenta un fragmento del archivo *handlers.py* donde se levanta el servidor mediante **Flask** y **Connexion**.
+En el archivo [indexer.yaml](https://github.com/gaearaz/sd-midterm2/blob/master/src/openapi/indexer.yaml) se encuentra toda la documentación de la API, en este se declaran todos los paths (end points) de los servicios, los tipos de petición HTTP y sus posibles respuestas, así como la función del archivo [handlers.py](https://github.com/gaearaz/sd-midterm2/blob/master/src/handlers.py) a la que se llama. A continuación se presenta un fragmento del archivo *handlers.py* donde se levanta el servidor mediante **Flask** y **Connexion**.
 
 ![Alt text](images/main.png?raw=true "main")
 
-> Todos los servicios de la API mencionados en el punto 0 están detallados y especificados en *indexer.yaml*, además, se implementaron las validaciones necesarias para cada uno de los servicios con sus respectivas excepciones y respuestas HTTP
+> Todos los servicios de la API mencionados en el punto 0 están detallados y especificados en *indexer.yaml*, además, se implementaron las validaciones necesarias para cada uno de los servicios con sus respectivas excepciones y respuestas HTTP.
 
 Para visualizar todos los servicios que ofrece la API se debe ingresar en un navegador la dirección http://0.0.0.0:5000/ui, una interfaz web ofrecida por OpenAPI, donde se puede observar lo siguiente.
 
 ![Alt text](images/swagger_ui.png?raw=true "Swagger UI")
 
-## 3. Implementación de los servicios de la API
+## 3. Conexión con MongoDB
+
+Para la conexión con MongoDB se utilizó la librería pymongo que permite inicializar un MongoClient a través de un string de conexión provisto por MongoDB Atlas en el cual se encuentran el cluster, la base de datos, el usuario y la contraseña, este cliente representa el cluster desde el que se puede acceder a sus base de datos y sus colecciones. A continuación se muesta dicha conexión la cual se encuentra en *handlers.py*.
+
+![Alt text](images/pymongo.png?raw=true "MongoDB Connection from python")
+
+## 4. Implementación de los servicios de la API
 
 A continuación de muestra la información del servicio *get_user(cc)*.
 
@@ -77,7 +85,7 @@ En la anterior captura se puede observar toda la información que fue definida p
 
 Todo lo anterior, es configurado por cada servicio en *handlers.py*
 
-## 4. Evidencias del funcionamiento de los servicios API
+## 5. Evidencias del funcionamiento de los servicios API
 
 Al hacer la petición al servicio, ingresando el valor '123' como *cc* a un documento que existe en la colección de la base de datos, la API responde un 200 y retorna un json que contiene el usuario con toda su información tal como se puede observar en la siguiente captura.
 
@@ -91,7 +99,37 @@ Por otro lado, si se hace la petición de un usuario que no existe, se retorna u
 
 ![Alt text](images/get_user_error_400.png?raw=true "get_user(): 400")
 
+## 6. Pruebas unitarias con integración contínua}
+
+El orden de las pruebas se hizo pensando en un continuo flujo de transacciones sobre la base de datos para la gestión de los usuarios, así como los tipos de peticiones, de manera que se pudieran evidenciar todas las posibles respuestas de los servicios de la API
 
 
 
 
+
+
+
+
+
+## 7. Problemas encontrados y sus soluciones
+
+* Uno de los primeros problemas encontrados fue al intentar instalar todos los paquetes ya que hubo ciertas librerías que no se instalaban correctamente, al ejectuar el *pip install* se mostraba que todo había quedado instalado satisfactoriamente, sin embargo, cuando se ejecutaba la API esta librería sacaba errores. Este error era debido a que nos encontrabamos usando el interprete de comandos zsh y este no lograba instalar adecuadamente los plugins de ciertas librerías, es por esto, que en las tareas para el despliegue se declara que se debe utilizar el interprete bash.
+
+* Fue un poco complejo establecer la conexión entre python y el cluster en MongoDB Atlas, pese a que la librería pymongo es bastante intuitiva para la conexión con Mongo, es distinto relizarla con una base de datos local a una base de datos alojada en un cluster en la nube. Esto implicó investigación para dicha conexión e instalar nuevos paquetes, fue de gran ayuda el que la plataforma web de MongoDB Atlas brinda el string de conexión para distintos lenguajes.
+
+
+
+
+
+
+
+
+
+
+## Referencias
+
+https://github.com/ICESI/so-microservices-python
+https://developer.mozilla.org/es/docs/Web/HTTP/Methods
+https://developer.mozilla.org/es/docs/Web/HTTP/Status
+https://medium.com/@MicroPyramid/mongodb-crud-operations-with-python-pymongo-a26883af4d09
+https://github.com/zalando/connexion
