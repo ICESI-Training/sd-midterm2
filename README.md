@@ -28,6 +28,10 @@ Sin embargo, se adjuntarán imágenes como evidencia de la documentación:
 
 ![](images/openapi6.PNG)
 
+![](images/openapi7.PNG)
+
+![](images/openapi8.PNG)
+
 ## 2. Pruebas unitarias
 Para realizar las pruebas unitarias se instalaron las siguientes dependencias:
 - superagent
