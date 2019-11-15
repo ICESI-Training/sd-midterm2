@@ -9,8 +9,7 @@ OpenAPI, originalmente conocida como Swagger Specification, es una especificaci�
 
 La documentación de la API puede visualizarse en el siguiente enlace:
 
-EN LOS PARENTESIS SE PONE EL ENLACE
-- [Link de OpenAPI]()
+- [Link de OpenAPI](https://editor.swagger.io/?_ga=2.241409030.589783620.1573250410-1798513720.1573250410)
 
 La documentación de la API de manera gráfica puede visualizarse en el siguiente enlace:
 
