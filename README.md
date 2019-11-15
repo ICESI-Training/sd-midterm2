@@ -2,7 +2,7 @@
 Examen 2
 
 Universidad ICESI
-Curso: Sistemas Operativos
+Curso: Sistemas Distribuidos
 Docente: Juan Manuel Alvarez
 Tema: Diseño de arquitectura de Microservicios
 
@@ -145,7 +145,6 @@ Se utilizó la aplicación con interfaz gráfica que ofrece Swagger para ver má
 
 ***Evidencias de la documentación de la API de conformidad con el estándar***
 
-
 ## [ Imagen de Swagger ]
 
 Evidencia de los métodos http del Swagger UI y la colección de Users
@@ -280,6 +279,11 @@ Para ver un poco de peticios cURL sobre la api, nos direccionaremos a la página
 
 ![Alt text](capturas/curl-delete2.png?raw=true "curl")
 
+## Conexion con MongoDB mediante mLab
+
+![Alt text](capturas/curl-delete1.png?raw=true "curl")
+
+![Alt text](capturas/curl-delete2.png?raw=true "curl")
 
 *****Problemas encontrados y las acciones efectuadas para darles solucion******
 
