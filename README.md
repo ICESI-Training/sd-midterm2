@@ -51,10 +51,10 @@ Las pruebas unitarias que se realizaron fueron las siguientes:
 ![](images/TestsScreenshot.PNG)
 
 En orden se encuentran:
-1. Probar cuando no hay ningún usuario creado. En esta se verifica que el status sea 200 y devuelva un mensaje evidenciando que no hay ningún usuario creado.  
+1. Probar cuando no hay ningún usuario creado. En esta se verifica que el status sea 200 y se comprueba que el array que se devuelve tiene al menos un usuario creado, y en este caso que se devuelva un mensaje evidenciando que no hay ningún usuario creado.  
 2. Probar a insertar un usuario. En esta se verifica que el status que devuelva sea 201, se compara el cuerpo de la respuesta con una variable que tiene los datos de usuario (nombre, apellidos y id), también se verifica que devuelva un mensaje que dice que un nuevo usuario ha sido creado.
 3. Probar a  insertar un usuario que ya esté creado. En esta se intenta insertar el usuario insertado en la prueba anterior y se verifica que el status que se devuelva sea un 400 y que se devuelva un mensaje que diga un mensaje que diga que un usuario ya ha sido creado con ese id.
-4. Probar  a obtener todos los usuarios. En esta se verifica que el status de respuesta sea 200, que se devuelva un mensaje diciendo que se obtuvo una lista de todos los usuarios y se verifica que el único usuario insertado corresponda con los atributos (nombre, apellido y id).
+4. Probar  a obtener todos los usuarios. En esta se verifica que el status de respuesta sea 200, que se devuelva un mensaje diciendo que se obtuvo una lista de todos los usuarios y se verifica que la lista tenga un tamaño mayor a 0.
 5. Probar a obtener una ruta no existente. En esta se verifica que el status de respuest sea 200 y devuelva un mensaje de bienvenida a la aplicación.
 
 Para que las pruebas funcionen es necesario ejecutar el comando: **node index.js** (para levantar el servidor de node) y luego **npm test**
