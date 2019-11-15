@@ -6,8 +6,8 @@ const { expect } = chai;
 
 const requestBody = {
   name: "Daniel",
-  lastname: "Quintero",
-  idnumber: 11438743
+  lastname: "Quinter",
+  idnumber: 1143874
 };
 
 describe('Api Tests for Users endpoints', () => {
@@ -53,7 +53,7 @@ describe('Api Tests for Users endpoints', () => {
       const response = await agent.get('http://localhost:4000/users');
       expect(response.status).to.equal(200);
       expect(response.body.message).to.eql('A list of all users');    
-      expect(response.body.message).to.gt(0);
+      expect(response.body.users.length).to.gt(0);
 
     });
      
