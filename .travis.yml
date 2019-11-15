@@ -1,0 +1,13 @@
+language: node_js
+cache:
+directories:
+- node_modules
+notifications:
+email: false
+branches:
+except:
+- "/^v\\d+\\.\\d+\\.\\d+$/"
+script:
+  - node index.js &
+  - sleep 15
+  - npm test
