@@ -1,0 +1,21 @@
+---
+conditions: v1
+stages:
+  - name: check
+  - name: basic-tests
+
+sudo: required
+dist: ubuntu
+language: python
+
+branches:
+  only:
+    - master
+
+install:
+  - python3 -m pip install -r requirements.txt
+
+# command to run tests
+script:
+  - bash test.sh
+ 

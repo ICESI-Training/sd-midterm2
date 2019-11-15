@@ -41,7 +41,7 @@ def insert_user(cc,username):
                         "username": username,
                     }
                 )
-                return 201
+                return 'Created', 201
             else:
                 return 'Bad Request', 400, {
                     'exists-error': 'The user with the given cc already exists'
@@ -65,7 +65,7 @@ def delete_user(cc):
                     "cc": cc,
                 }
             )
-            return 200
+            return 'OK', 200
         else:
             return 'Not found', 404, {
                 'exists-error': 'The user with the given cc was not found'

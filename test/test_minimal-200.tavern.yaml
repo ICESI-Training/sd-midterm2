@@ -1,0 +1,39 @@
+---
+# Every test file has one or more tests...
+test_name: HTTP - Code 200's requests
+
+# ...and each test has one or more stages (e.g. an HTTP request)
+stages:
+  - name: GET Test
+
+    # Define the request to be made...
+    request:
+      url: http://0.0.0.0:5000/users/123 
+      method: GET
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+
+  - name: DELETE Test
+
+    # Define the request to be made...
+    request:
+      url: http://0.0.0.0:5000/users/delete/123
+      method: DELETE
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+
+  - name: POST Test
+
+    # Define the request to be made...
+    request:
+      url: http://0.0.0.0:5000/users/insert/123/juan
+      method: POST
+
+    # ...and the expected response code and body
+    response:
+      status_code: 200
+
