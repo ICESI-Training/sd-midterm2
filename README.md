@@ -16,20 +16,29 @@ La documentación de la API de manera gráfica puede visualizarse en el siguient
 - [Link de OpenAPI gráfico]()
 
 Sin embargo, se adjuntarán imágenes como evidencia de la documentación:
+
+En esta primera imagen se evidencian el puerto por el cual corren los servicios a nivel local, que en este caso es el 4000, y los dos servicios implementados, GET y POST
 ![](images/openapi1.PNG)
 
+En esta imagen se evidencia un ejemplo del request body que se debe pasar como parametro para crear un usuario (servicio POST)
 ![](images/openapi2.PNG)
 
+En esta imagen se muestra el esquema de usuario con sus atributos que se debe mandar en el request (servicio POST)
 ![](images/openapi3.PNG)
 
+En esta imagen se muestra las posibles respuestas cuando se le hace petición al servicio POST
 ![](images/openapi4.PNG)
 
+En esta imagen se muestra el servicio GET, dónde se evidencia que éste no necesita parametros para una petición
 ![](images/openapi5.PNG)
 
+En esta imagen se muestra las posibles respuestas cuando se le hace petición al servicio GET
 ![](images/openapi6.PNG)
 
+En esta imagen se muestran los nombres de los esquemas que se utilizan para petición de servicios y para dar respuesta a ellos
 ![](images/openapi7.PNG)
 
+En esta imagen se evidencia con más detalle los esquemas del punto anterior y sus atributos
 ![](images/openapi8.PNG)
 
 ## 2. Pruebas unitarias
@@ -118,7 +127,7 @@ Para que estos microservicios funcionen es necesario ejecutar los siguientes com
  script
  
     npm install
-    node index.js.
+    node index.js
 
 En caso de tener problemas, borrar la carpeta node_modules y ejecutar:
 script
