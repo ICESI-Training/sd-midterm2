@@ -304,15 +304,19 @@ Para ver un poco de peticios cURL sobre la api, nos direccionaremos a la página
 
 4. Integracion de **Travis CI** para la automatización de pruebas
 
-   4.1 Configuracion del ambiente de pruebas mediante **tox**
+   4.1 Configuracion del ambiente de pruebas mediante **tox** y utilizar este ambiente en **Travis CI**
    
    Para realizar las pruebas de manera local se utilizó esta herramienta, que permite obtener un reporte de la pruebas realizadas en 
-   python.
-   Luego se utilizo este mismo ambiente virtual como base para generar el ambiente virtual en **Travis CI**. Se tuvieron dificultades
-   con esta integracion pues no se tenia el conocimiento necesario para realizarlo. Sin embargo, se investigo en la pagina de esta
-   libreria de Python.
+   python. Luego se utilizo este mismo ambiente virtual como base para generar el ambiente virtual en **Travis CI**. Se tuvieron 
+   dificultades con esta integracion pues no se tenia el conocimiento necesario para realizarlo. Sin embargo, se investigo en la pagina 
+   de esta libreria de Python.
    
    -> https://tox.readthedocs.io/en/latest/
+   
+   Adicionalmente se realizaron las configuraciones necesarias para que el ambiente virtual definido en **tox** funcionara en compañia
+   con **Travis-CI** mediante la libreria **tox-travis** la cual se investigo en el siguiente link:
+   
+   -> https://pypi.org/project/tox-travis/
    
    4.2 Definicion de las pruebas
    
