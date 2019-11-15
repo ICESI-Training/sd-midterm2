@@ -287,13 +287,16 @@ Para ver un poco de peticios cURL sobre la api, nos direccionaremos a la página
 
    Debido a la sintaxis que maneja el archivo **.yaml** que utilizamos en este caso, se investigo sobre las etiquetas que   
    se manejan dentro de este formato. Al momento de definir los **schemas** necesarios para darle forma a las respuestas que se querian 
-   mostrar, se tuvieron algunas dificultades. 
+   mostrar, se tuvieron algunas dificultades. La pagina consultada para darle solucion a este problema fue:
    
-   La pagina consultada para darle solucion a este problema fue:
+   -> https://swagger.io/docs/specification/about/
    
-   -> https://swagger.io/docs/specification/about/ 
+2. Uso e instalacion del framework **Connexion**
+
+   Se tuvieron algunas dificultades al momento de trabajar con este framework, dado que, no estaba ligada al **PATH** para usarse 
+   globalmente en el **SO Ubuntu**. Para comprender mejor el manejo de esta herramienta se consulto su pagina oficial:
    
-2. Uso e instalacion de la libreria **Connexion**
+   -> https://pypi.org/project/connexion/
 
 3. Instalacion y Uso de **Python** en Ubuntu.
 
@@ -303,7 +306,8 @@ Para ver un poco de peticios cURL sobre la api, nos direccionaremos a la página
 
    4.1 Configuracion del ambiente de pruebas mediante **tox**
    
-   Para realizar las pruebas de manera local se esta herramienta, que permite obtener un reporte de la pruebas realizadas en python.
+   Para realizar las pruebas de manera local se utilizó esta herramienta, que permite obtener un reporte de la pruebas realizadas en 
+   python.
    Luego se utilizo este mismo ambiente virtual como base para generar el ambiente virtual en **Travis CI**. Se tuvieron dificultades
    con esta integracion pues no se tenia el conocimiento necesario para realizarlo. Sin embargo, se investigo en la pagina de esta
    libreria de Python.
@@ -314,3 +318,5 @@ Para ver un poco de peticios cURL sobre la api, nos direccionaremos a la página
    
    La falta de algunos conocimientos respecto a la libreria **pytest** se debio realizar una investigacion para encontrar la manera de
    codificar las pruebas.
+   
+   -> https://docs.pytest.org/en/latest/
