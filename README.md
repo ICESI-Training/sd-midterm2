@@ -20,8 +20,8 @@ Sin embargo, se adjuntarán imágenes como evidencia de la documentación:
 En esta primera imagen se evidencian el puerto por el cual corren los servicios a nivel local, que en este caso es el 4000, y los dos servicios implementados, GET y POST
 ![](images/openapi1.PNG)
 
-En esta imagen se evidencia un ejemplo del request body que se debe pasar como parametro para crear un usuario
-(servicio POST)
+En esta imagen se evidencia un ejemplo del request body que se debe pasar como parametro para crear un usuario (servicio POST)
+
 ![](images/openapi2.PNG)
 
 En esta imagen se muestra el esquema de usuario con sus atributos que se debe mandar en el request (servicio POST)
@@ -36,8 +36,8 @@ En esta imagen se muestra el servicio GET, dónde se evidencia que éste no nece
 En esta imagen se muestra las posibles respuestas cuando se le hace petición al servicio GET
 ![](images/openapi6.PNG)
 
-En esta imagen se muestran los nombres de los esquemas que se utilizan para petición de servicios y para dar respuesta
-a ellos
+En esta imagen se muestran los nombres de los esquemas que se utilizan para petición de servicios y para dar respuesta a ellos
+
 ![](images/openapi7.PNG)
 
 En esta imagen se evidencia con más detalle los esquemas del punto anterior y sus atributos
@@ -148,7 +148,7 @@ script
 Los problemas encontrados y las acciones efectuadas fueron las siguientes:
 1. Al realizar la conexión de MongoDBAtlas con nuestra aplicación, salía el siguiente error: **Mongodb connection timeout**. El error consistía en que en la línea que nos proporcionaban había una parte así < password > y estábamos sólo sustituyendo la palabra password por nuestra contraseña del administrador. La solución fue efectivamente quitar los <> para que hiciera la conexión adecuadamente. 
 2. Al correr las pruebas de manera local con el comando npm test salía el siguiente error: **echo "Error: no test specified" && exit 1 "Error: no test specified" npm ERR!** Test failed. La solución fue poner en el package.json en los scripts: **“test”: “mocha -t 5000”**.
-3. Probamos a levantar los microservicios en una máquina diferente a las 2 trabajadas y persistía un error con express, por eso en el apartado de despliegue se deja una solución en caso de tener problemas.
+3. Probamos a levantar los microservicios en una máquina diferente a las 2 trabajadas y persistía un error con express y node, por eso en el apartado de despliegue se deja una solución en caso de tener problemas.
 4. Tuvimos varios inconvenientes con travis los cuales serán listados a continuación:
 - Inicialmente Travis no estaba funcionando puesto que solo estaba corriendo el comando de las pruebas (npm test), pero para que corrieran las pruebas correctamente primero hay que levantar el servidor de node. Por tanto, en el archivo **.travis.yml** agregamos lo siguiente: 
   
