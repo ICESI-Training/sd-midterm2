@@ -123,6 +123,12 @@ Se evidencia que se pueden listar los usuarios con GET /users
 Previamente agregamos un nuevo usuario y podemos ver que lista todos los usuarios agregados. 
 ![](images/getUSERS2.PNG)
 
+Se comprueba que cuando hacemos GET a otra ruta, se devuelve un mensaje de bienvenida a la app
+![](images/getAnotherRoute.PNG)
+
+Se comprueba que cuando no hay usuarios agregados y se pide la lista, se devuelve un mensaje indicando que la lista está vacía
+![](images/getEmptyList.PNG)
+
 Para que estos microservicios funcionen es necesario ejecutar los siguientes comandos: 
  script
  
