@@ -7,8 +7,7 @@ email: false
 branches:
 except:
 - "/^v\\d+\\.\\d+\\.\\d+$/"
-before_script:
-  - sleep 15
 script:
   - node index.js &
+  - sleep 15
   - npm test
