@@ -281,9 +281,13 @@ Para ver un poco de peticios cURL sobre la api, nos direccionaremos a la página
 
 ## Conexion con MongoDB mediante mLab
 
-![Alt text](capturas/curl-delete1.png?raw=true "curl")
+   Configuracion del archivo **config.py**
 
-![Alt text](capturas/curl-delete2.png?raw=true "curl")
+![Alt text](capturas/BDCredential.png?raw=true "curl")
+
+   Base de Datos de **mLab** con las conexiones recientes
+
+![Alt text](capturas/BDConnection.png?raw=true "curl")
 
 *****Problemas encontrados y las acciones efectuadas para darles solucion******
 
