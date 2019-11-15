@@ -9,11 +9,7 @@ OpenAPI, originalmente conocida como Swagger Specification, es una especificaci�
 
 La documentación de la API puede visualizarse en el siguiente enlace:
 
-- [Link de OpenAPI](https://editor.swagger.io/?_ga=2.241409030.589783620.1573250410-1798513720.1573250410)
-
-La documentación de la API de manera gráfica puede visualizarse en el siguiente enlace:
-
-- [Link de OpenAPI gráfico]()
+- [Link de OpenAPI](openapi/openapi.yaml)
 
 Sin embargo, se adjuntarán imágenes como evidencia de la documentación:
 
@@ -21,6 +17,7 @@ En esta primera imagen se evidencian el puerto por el cual corren los servicios 
 ![](images/openapi1.PNG)
 
 En esta imagen se evidencia un ejemplo del request body que se debe pasar como parametro para crear un usuario (servicio POST)
+
 ![](images/openapi2.PNG)
 
 En esta imagen se muestra el esquema de usuario con sus atributos que se debe mandar en el request (servicio POST)
@@ -36,6 +33,7 @@ En esta imagen se muestra las posibles respuestas cuando se le hace petición al
 ![](images/openapi6.PNG)
 
 En esta imagen se muestran los nombres de los esquemas que se utilizan para petición de servicios y para dar respuesta a ellos
+
 ![](images/openapi7.PNG)
 
 En esta imagen se evidencia con más detalle los esquemas del punto anterior y sus atributos
@@ -95,6 +93,7 @@ Para la configuración de MongoDBAtlas se realizó lo siguiente:
 A continuación, una evidencia de los microservicios implementados:
 ![](images/MicroservicesScreenshot.PNG)
 
+![](images/connectClient.PNG)
 En orden se encuentran:
 - **GET** /: Este endpoint hace referencia a la parte de bienvenida a la aplicación. 
 - **POST** /users:  Esta parte es para crear un nuevo usuario. Lo que se realiza es verificar si no hay un usuario creado con el idnumber ingresado para poder hacer efectivamente el registro del nuevo usuario. 
@@ -123,14 +122,20 @@ Se evidencia que se pueden listar los usuarios con GET /users
 Previamente agregamos un nuevo usuario y podemos ver que lista todos los usuarios agregados. 
 ![](images/getUSERS2.PNG)
 
+Se comprueba que cuando hacemos GET a otra ruta, se devuelve un mensaje de bienvenida a la app
+![](images/getAnotherRoute.PNG)
+
+Se comprueba que cuando no hay usuarios agregados y se pide la lista, se devuelve un mensaje indicando que la lista está vacía
+![](images/getEmptyList.PNG)
+
 Para que estos microservicios funcionen es necesario ejecutar los siguientes comandos: 
- script
+
  
     npm install
     node index.js
 
 En caso de tener problemas, borrar la carpeta node_modules y ejecutar:
-script
+
 
      npm install express
      npm install
@@ -139,8 +144,9 @@ script
 ## 5. Problemas encontrados y acciones efectuadas
 Los problemas encontrados y las acciones efectuadas fueron las siguientes:
 1. Al realizar la conexión de MongoDBAtlas con nuestra aplicación, salía el siguiente error: **Mongodb connection timeout**. El error consistía en que en la línea que nos proporcionaban había una parte así < password > y estábamos sólo sustituyendo la palabra password por nuestra contraseña del administrador. La solución fue efectivamente quitar los <> para que hiciera la conexión adecuadamente. 
-2. Al correr las pruebas de manera local con el comando npm test salía el siguiente error: **echo "Error: no test specified" && exit 1 "Error: no test specified" npm ERR!** Test failed. La solución fue poner en el package.json en los scripts: **“test”: “mocha -t 5000”**. 
-3. Tuvimos varios inconvenientes con travis los cuales serán listados a continuación:
+2. Al correr las pruebas de manera local con el comando npm test salía el siguiente error: **echo "Error: no test specified" && exit 1 "Error: no test specified" npm ERR!** Test failed. La solución fue poner en el package.json en los scripts: **“test”: “mocha -t 5000”**.
+3. Probamos a levantar los microservicios en una máquina diferente a las 2 trabajadas y persistía un error con express y node, por eso en el apartado de despliegue se deja una solución en caso de tener problemas.
+4. Tuvimos varios inconvenientes con travis los cuales serán listados a continuación:
 - Inicialmente Travis no estaba funcionando puesto que solo estaba corriendo el comando de las pruebas (npm test), pero para que corrieran las pruebas correctamente primero hay que levantar el servidor de node. Por tanto, en el archivo **.travis.yml** agregamos lo siguiente: 
   
     script
@@ -159,7 +165,8 @@ Los problemas encontrados y las acciones efectuadas fueron las siguientes:
         - npm test
     La nueva línea agregada permitía que “se durmiera” por 15ms dándole una espera para que se conectará correctamente a MongoDBAtlas y luego sí ejecutará las pruebas para que salieran exitosas :)
 
-##Bibliografía
+## Bibliografía
+
 OpenApi: https://en.wikipedia.org/wiki/OpenAPI_Specification
 
 MongoDBAtlas: https://www.mongodb.com/presentations/mongodb-atlas-la-mejor-forma-de-utilizar-mongodb-en-la-nube-1
