@@ -109,13 +109,17 @@ Se utiliza Tavern, un plugin de pytest para volver más fácil la creación y ej
 
 Travis instala las dependencias necesarias y ejecuta los test con normalidad, además de que vuelve más natural la manera de diseñar el código de los test
 
+![Alt text](images/travis.png?raw=true "works!")
+
+Luego de realizar los pasos de emparejamiento de repositorio, configuración de travis.yml y diseño de la estrategia de conexión con los test de tavern, se logra la correcta integración con travis para automatizar test.
+
 ## 7. Problemas encontrados y sus soluciones
 
 * Uno de los primeros problemas encontrados fue al intentar instalar todos los paquetes ya que hubo ciertas librerías que no se instalaban correctamente, al ejectuar el *pip install* se mostraba que todo había quedado instalado satisfactoriamente, sin embargo, cuando se ejecutaba la API esta librería sacaba errores. Este error era debido a que nos encontrabamos usando el interprete de comandos zsh y este no lograba instalar adecuadamente los plugins de ciertas librerías, es por esto, que en las tareas para el despliegue se declara que se debe utilizar el interprete bash.
 
 * Fue un poco complejo establecer la conexión entre python y el cluster en MongoDB Atlas, pese a que la librería pymongo es bastante intuitiva para la conexión con Mongo, es distinto relizarla con una base de datos local a una base de datos alojada en un cluster en la nube. Esto implicó investigación para dicha conexión e instalar nuevos paquetes, fue de gran ayuda el que la plataforma web de MongoDB Atlas brinda el string de conexión para distintos lenguajes.
 
-* Al comienzo no se tenía mucho conocimiento a la hora de manipular un API basado en Open API, se probaron implementaciones basadas en síntaxis pura de Open API y en python y nos quedamos con python. Al tener similitudes con herramientas antes utilizadas se tuvo un plus a la hora de agilizar la producción de resultados, al mismo tiempo que optimizó la gestión de dependencias. 
+* Al comienzo no se tenía mucho conocimiento a la hora de manipular un API basado en Open API, se probaron implementaciones basadas en síntaxis pura de Open API y en python y se eligió finalmente una implementación usando en buena parte python. Al tener similitudes con herramientas antes utilizadas se tuvo un plus a la hora de agilizar la producción de resultados, al mismo tiempo que optimizó la gestión de dependencias. 
 
 
 
