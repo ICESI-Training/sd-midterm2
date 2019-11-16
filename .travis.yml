@@ -9,5 +9,5 @@ except:
 - "/^v\\d+\\.\\d+\\.\\d+$/"
 script:
   - node index.js &
-  - sleep
+  - sleep 15
   - npm test
