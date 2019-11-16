@@ -27,7 +27,7 @@ router.get('/', (req, res, next) => {
         }
       })
     }
-    if (docs.length >= 0) {
+    if (docs.length > 0) {
       res.status(200).json(response)
     } else {
       res.status(404).json({
@@ -120,7 +120,7 @@ router.patch('/:movieID', (req, res, next) => {
     })
   }).catch(err => {
     console.log(err)
-    res.status(500).json({
+    res.status(404).json({
       error: err
     })
   })
