@@ -8,6 +8,6 @@ branches:
 except:
 - "/^v\\d+\\.\\d+\\.\\d+$/"
 script:
-  - node index.js &
+  - node ./api/server.js &
   - sleep 15
   - npm test
