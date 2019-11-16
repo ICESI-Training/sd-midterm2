@@ -35,5 +35,5 @@ stages:
 
     # ...and the expected response code and body
     response:
-      status_code: 200
+      status_code: 201
 
