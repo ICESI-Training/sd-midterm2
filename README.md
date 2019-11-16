@@ -903,8 +903,11 @@ npm test
 Se creará automáticamente una carpeta **report** con el reporte HTML. Para visualizarlo basta con copiar la ruta (terminada en **.html**) que sale en la consola, como por ejemplo: *D:\JUANES\9no Semestre\Distribuidos\sd-midterm2\report\ApiTesting.html*, y pegarla en el navegador.
 
 ![1](/images/report/1.png)
+
 ![2](/images/report/2.png)
+
 ![3](/images/report/3.png)
+
 ![4](/images/report/4.png)
  
  **Nota:** para que las pruebas se ejecuten, debe estar desplegado el proyecto.
