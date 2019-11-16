@@ -90,7 +90,67 @@ https://developer.mozilla.org/es/docs/Web/HTTP/Methods
 
 ### Implementación
 
-#### Backend
+#### Openapi 
+
+Para empezar el desarrollo de nuestra API se estructura la documentacion de la misma a traves de la herramienta Openapi 3.0 para esto se accede a la pagina web https://app.swaggerhub.com/ nos registramos con nuestra cuenta de github y por medio de la interfaz grafica que nos ofrece swaggerhub empezamos a desarrollar nuestra documentacion en formato .YAML y esta interfaz grafica nos permite visualizar la vista previa de nuestra documentacion. se estructuran los siguientes endpoints y metodos http.
+
+
+| Endpoint             | Metodo           |
+|--------------------  |------------------|
+|**/movies/**          |Get               |
+|                      |Post              |
+|**/movies/{movieID}** |Get               |
+|                      |Patch             |
+|                      |Delete            |
+
+La tabla anterior es un bosquejo a grande riesgos de lo que se va a implementar pero con ayuda de openapi se estructuran los parametros, las diferentes respuestas, el cuerpo de la request y de la solicitud.
+
+### Descripcion de la API
+
+![Descripcion](/images/Openapi/api1.png)
+
+### Especificacion Metodo get endpoitn /movies
+
+![Descripcion](/images/Openapi/api2.png)
+![Descripcion](/images/Openapi/api3.png)
+![Descripcion](/images/Openapi/api4.png)
+
+### Especificacion Metodo post endpoitn /movies
+
+![Descripcion](/images/Openapi/api5.png)
+![Descripcion](/images/Openapi/api6.png)
+
+### Especificacion Metodo get endpoitn /movies/{movieID}
+
+![Descripcion](/images/Openapi/api7.png)
+![Descripcion](/images/Openapi/api8.png)
+
+### Especificacion Metodo patch endpoitn /movies/{movieID}
+
+![Descripcion](/images/Openapi/api9.png)
+![Descripcion](/images/Openapi/api10.png)
+
+### Especificacion Metodo delete endpoitn /movies/{movieID}
+
+![Descripcion](/images/Openapi/api11.png)
+
+finalmente se especifican todos los objetos creados en el archivo .YAML para las diferentes referencias que se realiza a traves de la documentacion.
+
+
+### schemas
+
+![Descripcion](/images/Openapi/api12.png)
+
+### Validacion del archivo de documentacion openapi 3.0
+
+![Descripcion](/images/Openapi/api13.png)
+
+* [Link del Openapi de la API](https://app.swaggerhub.com/apis/CristianMoralesLopez/sd-midterm2/1.0.0#/Desarrolladores)
+
+
+ 
+ 
+ #### Backend
 
 Vamos a instalar las dependencias **nodemon**, **morgan** y **body-parser**.
 
@@ -902,17 +962,9 @@ npm test
 
 Se creará automáticamente una carpeta **report** con el reporte HTML. Para visualizarlo basta con copiar la ruta (terminada en **.html**) que sale en la consola, como por ejemplo: *D:\JUANES\9no Semestre\Distribuidos\sd-midterm2\report\ApiTesting.html*, y pegarla en el navegador.
 
-![1](/images/reportes/1.png)
-
-![2](/images/reportes/2.png)
-
-![3](/images/reportes/3.png)
-
-![4](/images/reportes/4.png)
+![1](/images/report/1.png)
  
  **Nota:** para que las pruebas se ejecuten, debe estar desplegado el proyecto.
- 
- **Nota2:** la carpeta que contiene el html del reporte quedó en el **.gitignore** y por ende, no se puede ver.
 
 ---
 
@@ -954,7 +1006,7 @@ script:
   - npm test
 ~~~
 
-Básicamente copiamos el archivo **.travis.yml** de un taller que hicimos con PSL (el repositorio se encuentra entre nuestras referencias). Le añadimos la sección de script porque travis, al igual que nosotros a nivel local, el travis no puede correr las pruebas sin desplegar el backend.
+<EXPLICAR>
 
 Habilitamos Travis en el repositorio.
 
@@ -963,16 +1015,6 @@ Habilitamos Travis en el repositorio.
 Lo siguiente es verificar que la ejecución en Travis termine correctamente.
 
 ![2](/images/travis/2.png)
-
-![3](/images/travis/3.png)
-
-A pesar de que funcionaron tanto las pruebas con postman como las pruebas unitarias, el travis no logró funcionar.
-
----
-
-### Tareas de integración
-
-Como no manejabamos las tecnologías, nos íbamos turnando en cada una de las etapas que describimos (programación peer to peer). Entonces se puede decir que ambos integrantes hicimos algo de cada fase.
 
 ---
 
