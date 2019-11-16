@@ -107,11 +107,15 @@ El orden de las pruebas se hizo pensando en un continuo flujo de transacciones s
 
 Se utiliza Tavern, un plugin de pytest para volver más fácil la creación y ejecución de los test. El flujo para los test está determinado por el levantamiento del servidor en handlers.py seguido de la ejecución de un script bash que llama a este plugin y que prueba las diferentes peticiones a la API con sus respuestas correspondientes.
 
-Travis instala las dependencias necesarias y ejecuta los test con normalidad, además de que vuelve más natural la manera de diseñar el código de los test
+Travis instala las dependencias necesarias y ejecuta los test con normalidad, además de que vuelve más natural la manera de diseñar el código de los test.
+
+Se realizaron 3 archivos para las pruebas (de tipo .tavern.yaml). En cada uno de ellos se evaluaban escenarios de prueba para diferentes tipos de respuestas HTTP Request (Como se consideraron las respuestas 200 (sucess), 201, 400(bad input) y 404(not found)); el objetivo de esto era poder ver un correcto comportamiento en condiciones ideales, otro comportamiento en condiciones de inputs inválidos y en momentos donde la base de datos no posee información sobre lo que se consulta. Tambien las operaciones del CRUD tomaban un papel importante en cuanto a las validaciones, con el objetivo de cuidar la integridad en la estructura de los datos.
 
 ![Alt text](images/travis.png?raw=true "works!")
 
 Luego de realizar los pasos de emparejamiento de repositorio, configuración de travis.yml y diseño de la estrategia de conexión con los test de tavern, se logra la correcta integración con travis para automatizar test.
+
+![Alt text](images/travis2.png?raw=true "work")
 
 ## 7. Problemas encontrados y sus soluciones
 
