@@ -128,8 +128,18 @@ Travis instala las dependencias necesarias y ejecuta los test con normalidad, ad
 
 ## Referencias
 
+https://pypi.org/project/tavern/
+
+https://taverntesting.github.io/
+
+https://github.com/taverntesting/tavern/
+
 https://github.com/ICESI/so-microservices-python
+
 https://developer.mozilla.org/es/docs/Web/HTTP/Methods
+
 https://developer.mozilla.org/es/docs/Web/HTTP/Status
+
 https://medium.com/@MicroPyramid/mongodb-crud-operations-with-python-pymongo-a26883af4d09
+
 https://github.com/zalando/connexion
