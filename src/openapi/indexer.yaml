@@ -1,0 +1,107 @@
+openapi: 3.0.0
+info:
+  title: User API
+  version: 0.2.0
+paths:
+  "/users/":
+    get:
+      operationId: handlers.get_users
+      summary: Returns user information.
+      responses:
+        "200":
+          description: Successful response.
+        "400":
+          description: "Bad Request"
+
+  "/users/{cc}":
+    get:
+      operationId: handlers.get_user
+      summary: Returns the user info giving its cc.
+      parameters:
+        - name: cc
+          in: path
+          required: true
+          schema:
+            type: string
+            format: path
+      responses:
+        "200":
+          description: Successful response.
+          content:
+            "*/*":
+              schema:
+                type: "array"
+                items:
+                  properties:
+                    cc:
+                      type: "string"
+                    username:
+                      type: "string"
+        "400":
+          description: "Bad Request"
+        "404":
+          description: "Not found"
+
+  "/users/insert/{cc}/{username}":
+    post:
+      operationId: handlers.insert_user
+      summary: Inserts an user, needs its cc and username.
+      parameters:
+        - name: cc
+          in: path
+          required: true
+          schema:
+            type: string
+            format: path
+        - name: username
+          in: path
+          required: true
+          schema:
+            type: string
+            format: path
+      responses:
+        "201":
+          description: Successful response.
+          content:
+            "*/*":
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: "Bad Request"
+
+  "/users/delete/{cc}":
+    delete:
+      operationId: handlers.delete_user
+      summary: Deletes an user.
+      parameters:
+        - name: cc
+          in: path
+          required: true
+          schema:
+            type: string
+            format: path
+      responses:
+        "200":
+          description: Successful response.
+        "400":
+          description: "Bad Request"
+        "404":
+          description: "Not found"
+
+components:
+  schemas:
+    User:
+      type: "array"
+      required:
+        - cc
+        - username
+      properties:
+        cc:
+          type: string
+          description: User cc
+          example: 123
+        username:
+          type: string
+          description: User name
+          example: juan
+        
