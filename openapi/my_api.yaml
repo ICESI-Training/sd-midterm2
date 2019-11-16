@@ -1,0 +1,73 @@
+openapi: "3.0.0"
+info:
+  title: Administración de Usuarios
+  version: "1.0"
+  
+servers:
+  - url: http://localhost:3000
+
+paths:
+  /users:
+    post:
+      summary: Crear un usuario
+      description: Crea un usuario en base a los datos de id y nombre ingresados por parametro.
+      operationId: app.create_user
+      requestBody:
+        description: Usuario a crear en la base de datos
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/NewUser'
+      responses:
+        201:
+          description: Usuario creado con exito
+        400:
+          description: Bad request
+        402:
+          description: El usuario ya existe
+
+    
+    get:
+      summary: Extraer la información
+      description: Se extrae información todos los usuarios de la base de datos.
+      operationId: app.read_user
+      responses:
+        200:
+          description: Datos obtenidos con éxito
+          content:
+            text/plain:
+              schema:
+                type: string
+                example: '[{"_id": {"$oid": "5dcb7fc020f273c7abeb0a7b"}, "id": "1", "name": "Johnatan"}]'
+
+
+  /users/{id}:
+    delete:
+      summary: Eliminar usuario
+      description: Se elimina el usuario de la base de datos.
+      operationId: app.delete_user
+      parameters:
+        - name: id
+          in: path
+          description: Identificador del usuario a eliminar
+          required: true
+          schema:
+            type: string
+      responses:
+        204:
+          description: Usuario removido con éxito
+        404:
+          description: El usuario no existe
+
+
+components:
+  schemas:
+    NewUser:
+      type: object
+      properties:
+        id: 
+          type: string
+        name: 
+          type: string
+
