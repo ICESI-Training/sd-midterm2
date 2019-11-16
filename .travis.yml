@@ -14,6 +14,7 @@ branches:
 
 install:
   - python3 -m pip install -r requirements.txt
+  - python3 -m pip install pymongo[srv]
 
 # command to run tests
 script:
