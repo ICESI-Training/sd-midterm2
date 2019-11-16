@@ -7,3 +7,7 @@ email: false
 branches:
 except:
 - "/^v\\d+\\.\\d+\\.\\d+$/"
+script:
+  - node index.js &
+  - sleep
+  - npm test
