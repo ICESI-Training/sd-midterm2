@@ -1026,6 +1026,7 @@ Lo siguiente es verificar que la ejecución en Travis termine correctamente.
 
 3. No pudimos hacer que el travis diera exitosamente, pese a las pruebas con el postman funcionarán y también las pruebas unitarias. Tuvimos que lidiar con varios problemas, entre ellos: (1) tiraba error por la función lambda que escribía por consola si la conexión a la base de datos había sido exitosa y (2) diferentes problemas de la carpeta **node_modules** que es la que se crea cuando se inicializa el proyecto, después de intentar una y otra vez, no pudimos.
 
+4. Durante la redaccion de la documentacion de la API con la herramienta Openapi 3.0 fue complejo aprender la estructura de los diferentes objetos, metodos, respuestas pero lo mas complejo fue en el momento de estructurar los JSON de las respuestas cuando estos poseen diferentes objetos dentro del JSON despues de 3 videos y 5 ejemplos se me ocurrio una idea y habiendo entendido la estructura del lenguaje lo logre implementar esto fue lo mas dificil durante la documentacion.
 ---
 
 ### Referencias
@@ -1041,3 +1042,9 @@ https://victorroblesweb.es/2018/01/02/instalar-dependencias-con-npm-api-restful-
 https://www.paradigmadigital.com/dev/testeando-javascript-mocha-chai/
 
 https://www.youtube.com/watch?v=0oXYLzuucwE&list=PL55RiY5tL51q4D-B63KBnygU6opNPFk_q&index=1
+
+https://app.swaggerhub.com/apis/CristianMoralesLopez/sd-midterm2/1.0.0#/Desarrolladores
+
+https://www.youtube.com/watch?v=qHw4OnpXrvc&t=55s
+
+
