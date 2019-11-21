@@ -92,7 +92,7 @@ https://developer.mozilla.org/es/docs/Web/HTTP/Methods
 
 #### Openapi 
 
-Para empezar el desarrollo de nuestra API se estructura la documentacion de la misma a traves de la herramienta Openapi 3.0 para esto se accede a la pagina web https://app.swaggerhub.com/ nos registramos con nuestra cuenta de github y por medio de la interfaz grafica que nos ofrece swaggerhub empezamos a desarrollar nuestra documentacion en formato .YAML y esta interfaz grafica nos permite visualizar la vista previa de nuestra documentacion. se estructuran los siguientes endpoints y metodos http.
+Para empezar el desarrollo de nuestra API, se estructura la documentación de la misma a través de la herramienta Openapi 3.0. Para esto se accede a la página web https://app.swaggerhub.com/ , nos registramos con nuestra cuenta de github y por medio de la interfaz gráfica que nos ofrece swaggerhub. Empezamos a desarrollar nuestra documentacion en formato .yaml y esta interfaz gráfica nos permite visualizar la vista previa de nuestra documentacion. A continuación, se muestra la estructura de los endpoints y métodos http.
 
 
 | Endpoint             | Metodo           |
@@ -103,52 +103,50 @@ Para empezar el desarrollo de nuestra API se estructura la documentacion de la m
 |                      |Patch             |
 |                      |Delete            |
 
-La tabla anterior es un bosquejo a grande riesgos de lo que se va a implementar pero con ayuda de openapi se estructuran los parametros, las diferentes respuestas, el cuerpo de la request y de la solicitud.
+La tabla anterior es un bosquejo a grande rasgos de lo que se va a implementar. Cabe resaltar que con ayuda de openapi se estructuran los parametros, las diferentes respuestas, el cuerpo de la request y de la solicitud.
 
-### Descripcion de la API
+#### Descripción de la API
 
 ![Descripcion](/images/Openapi/api1.png)
 
-### Especificacion Metodo get endpoitn /movies
+#### Especificación método get endpoitn /movies
 
 ![Descripcion](/images/Openapi/api2.png)
 ![Descripcion](/images/Openapi/api3.png)
 ![Descripcion](/images/Openapi/api4.png)
 
-### Especificacion Metodo post endpoitn /movies
+#### Especificación método post endpoitn /movies
 
 ![Descripcion](/images/Openapi/api5.png)
 ![Descripcion](/images/Openapi/api6.png)
 
-### Especificacion Metodo get endpoitn /movies/{movieID}
+#### Especificación método get endpoitn /movies/{movieID}
 
 ![Descripcion](/images/Openapi/api7.png)
 ![Descripcion](/images/Openapi/api8.png)
 
-### Especificacion Metodo patch endpoitn /movies/{movieID}
+#### Especificación método patch endpoitn /movies/{movieID}
 
 ![Descripcion](/images/Openapi/api9.png)
 ![Descripcion](/images/Openapi/api10.png)
 
-### Especificacion Metodo delete endpoitn /movies/{movieID}
+#### Especificación método delete endpoitn /movies/{movieID}
 
 ![Descripcion](/images/Openapi/api11.png)
 
-finalmente se especifican todos los objetos creados en el archivo .YAML para las diferentes referencias que se realiza a traves de la documentacion.
+Finalmente se especifican todos los objetos creados en el archivo .yaml para las diferentes referencias que se realiza a traves de la documentacion.
 
 
-### schemas
+#### schemas
 
 ![Descripcion](/images/Openapi/api12.png)
 
-### Validacion del archivo de documentacion openapi 3.0
+#### Validación del archivo de documentación openapi 3.0
 
 ![Descripcion](/images/Openapi/api13.png)
 
 * [Link del Openapi de la API](https://app.swaggerhub.com/apis/CristianMoralesLopez/sd-midterm2/1.0.0#/Desarrolladores)
 
-
- 
  
  #### Backend
 
@@ -962,7 +960,7 @@ npm test
 
 Se creará automáticamente una carpeta **report** con el reporte HTML. Para visualizarlo basta con copiar la ruta (terminada en **.html**) que sale en la consola, como por ejemplo: *D:\JUANES\9no Semestre\Distribuidos\sd-midterm2\report\ApiTesting.html*, y pegarla en el navegador.
 
-![1](/images/report/1.png)
+![1](/images/reportes/1.png)
  
  **Nota:** para que las pruebas se ejecuten, debe estar desplegado el proyecto.
 
