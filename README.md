@@ -1024,7 +1024,7 @@ Lo siguiente es verificar que la ejecución en Travis termine correctamente.
 
 3. No pudimos hacer que el travis diera exitosamente, pese a las pruebas con el postman funcionarán y también las pruebas unitarias. Tuvimos que lidiar con varios problemas, entre ellos: (1) tiraba error por la función lambda que escribía por consola si la conexión a la base de datos había sido exitosa y (2) diferentes problemas de la carpeta **node_modules** que es la que se crea cuando se inicializa el proyecto, después de intentar una y otra vez, no pudimos.
 
-4. Durante la redaccion de la documentacion de la API con la herramienta Openapi 3.0 fue complejo aprender la estructura de los diferentes objetos, metodos, respuestas pero lo mas complejo fue en el momento de estructurar los JSON de las respuestas cuando estos poseen diferentes objetos dentro del JSON despues de 3 videos y 5 ejemplos se me ocurrio una idea y habiendo entendido la estructura del lenguaje lo logre implementar esto fue lo mas dificil durante la documentacion.
+4. Durante la redacción de la documentacion de la API con la herramienta Openapi 3.0 fue complejo aprender la estructura de los diferentes objetos, métodos, respuestas. Pero lo más complejo fue en el momento de estructurar los json de las respuestas cuando estas poseen diferentes objetos dentro. Después de 3 vídeos y 5 ejemplos, se nos ocurrió una idea y habiendo entendido la estructura del lenguaje lo logramos implementar.
 ---
 
 ### Referencias
