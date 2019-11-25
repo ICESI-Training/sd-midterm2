@@ -16,7 +16,7 @@ urlBase = 'https://api.github.com'
 
 # Return all the users from the database, you can access using a GET /users
 def read():
-    return dumps(users.find())
+    return dumps(users.find({},{"_id":0}))
 
 
 def insert(name):
