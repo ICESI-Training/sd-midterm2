@@ -1,5 +1,3 @@
-
-
 # Examen 2 - Sistemas Distribuidos
 ## Integrantes
 - Jesús Paz - A00022240
@@ -81,9 +79,32 @@ Para desplegar los servicios en la máquina local se debe hacer lo siguiente:
 
 ## 4.2 Documentación de las tareas para desplegar los microservicios en AWS.
 
+Se desplegó la API en AWS para poder realizar las pruebas de integración continua. Para esto se siguió el siguiente tutorial.
+
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/P5kGTr2zfn4/0.jpg)](http://www.youtube.com/watch?v=P5kGTr2zfn4 "Deploying Flask Application on AWS Elastic Beanstalk")
+
+La máquina de AWS Elastic Beanstalk se creó desde la interfaz gráfica y se realiza el siguiente procedimiento para hacer el despliegue.
+
+* Se agregó una variable de entorno, esta variable contiene la dirección de la base de datos de MongoDB.
+
+![env](/images/var-env.png)
+
+* Se crea un comprimido con solo los archivos necesarios para que la aplicación funcione, en este caso son:
+
+![Zip](/images/archivos-subir.png)
+
+* Se agrega el comprimido en la web, como se aprecia en la siguiente imagen:
+
+![Upload](/images/subirweb.png)
+
+* La aplicación se vuelve a desplegar automáticamente y es necesario esperar hasta que acabe. Cuando acaba el servicio esta en linea.
+![AWSOk](/images/aws-ok-deploy.png)
+
+![Online](/images/web-final.png)
+
 ## 4.3 Evidencias del despliegue.
 
-Para revisar el funcionamiento de la API se utilizo Swagger UI, se accede en el siguiente [link](apiflask-env.uuhyrnua83.us-east-2.elasticbeanstalk.com/ui).
+Para revisar el funcionamiento de la API se utilizo Swagger UI, se accede en el siguiente [link](http://apiflask-env.uuhyrnua83.us-east-2.elasticbeanstalk.com/ui).
 
 Primero, vamos a ver los usuarios existentes para eso entramos al método GET y presionamos el botón Try it out!, se obtiene lo siguiente:
 
