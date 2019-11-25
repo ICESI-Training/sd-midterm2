@@ -42,6 +42,7 @@ class TestUsersApi(unittest.TestCase):
 
         self.assertTrue(userId != "" and userId != None, "Can not be empty or None")
         # Commented because i create many repos all time
+        # Will be ok
         # self.assertEqual(numRepos, 22, "Number of repos should be 22")
       
     def test_add_new_user_empty_name(self):
