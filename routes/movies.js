@@ -22,7 +22,7 @@ router.get('/', (req, res, next) => {
           _id: doc._id,
           request: {
             type: 'GET',
-            url: 'http://localhost:8080/movies/' + doc._id
+            url: 'http://localhost:8082/movies/' + doc._id
           }
         }
       })
@@ -65,7 +65,7 @@ router.post('/', (req, res, next) => {
         _id: result._id,
         request: {
           type: 'GET',
-          url: 'http://localhost:8080/movies/' + result._id
+          url: 'http://localhost:8082/movies/' + result._id
         }
       }
     })
@@ -85,7 +85,7 @@ router.get('/:movieID', (req, res, next) => {
         movie: doc,
         request: {
           type: 'GET',
-          url: 'http://localhost:8080/movies/'
+          url: 'http://localhost:8082/movies/'
         }
       })
     } else {
@@ -115,7 +115,7 @@ router.patch('/:movieID', (req, res, next) => {
       message: 'Updated movie successfully',
       request: {
         type: 'GET',
-        url: 'http://localhost:8080/movies/' + id
+        url: 'http://localhost:8082/movies/' + id
       }
     })
   }).catch(err => {
