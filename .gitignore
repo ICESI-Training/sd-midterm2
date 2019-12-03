@@ -237,14 +237,14 @@ password.txt
 ## Information to use our API ##
 info.txt
 
-## Environments
-#.env
-#.venv
-#env/
-#venv/
-#ENV/
-#env.bak/
-#venv.bak/
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
 # dotenv environment variables file
-#.env
-#.env.test
+.env
+.env.test
