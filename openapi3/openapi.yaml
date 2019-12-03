@@ -1,0 +1,286 @@
+openapi: 3.0.0
+info:
+  title: sd-midterm2
+  description: API para Parcial 2 Sistemas Distribuidos de Cristian Morales y Juan
+    Quinayas
+  contact:
+    email: cristianalejandromoraleslopez@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+- url: https://virtserver.swaggerhub.com/CristianMoralesLopez/sd-midterm2/1.0.0
+  description: SwaggerHub API Auto Mocking
+tags:
+- name: Desarrolladores
+  description: Operaciones disponibles para desarrolladores
+paths:
+  /movies:
+    get:
+      tags:
+      - developers
+      summary: Devuelve una lista con todas las peliculas almacenadas en la base de
+        datos
+      description: |
+        Devuelve una lista con todas las peliculas almacenadas en la base de datos
+      operationId: buscarTodasLasPeliculas
+      responses:
+        200:
+          description: exito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestGet'
+        404:
+          description: La base de datos se encuentra vacia
+          content:
+            application/json:
+              schema:
+                type: string
+                example: Database is empty
+        500:
+          description: Ocurrio un error
+          content:
+            application/json:
+              schema:
+                type: string
+                example: ocurrio un error
+    post:
+      tags:
+      - developers
+      summary: añade una pelicula a la base de datos
+      description: añade una pelicula
+      operationId: añadirPelicula
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/body'
+      responses:
+        201:
+          description: La base de datos se encuentra vacia
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestPost'
+        500:
+          description: Ocurrio un error
+          content:
+            application/json:
+              schema:
+                type: string
+                example: ocurrio un error
+  /movies/{movieId}:
+    get:
+      tags:
+      - developers
+      summary: consulta una pelicula a partir de su ID
+      operationId: consultaPelicula
+      parameters:
+      - name: movieId
+        in: path
+        description: El id con el que se identifica la pelicula
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: exito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestMovieID'
+        404:
+          description: entrada no valida para el ID ingresado
+          content:
+            application/json:
+              schema:
+                type: string
+                example: ID invalido
+        500:
+          description: Ocurrio un error
+          content:
+            application/json:
+              schema:
+                type: string
+                example: ocurrio un error
+    delete:
+      tags:
+      - developers
+      summary: Elimina la pelicula con el ID especificado
+      operationId: eliminarPelicula
+      parameters:
+      - name: movieId
+        in: path
+        description: El id con el que se identifica la pelicula
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: exito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestDeleteMovieID'
+        500:
+          description: Ocurrio un error
+          content:
+            application/json:
+              schema:
+                type: string
+                example: ocurrio un error
+    patch:
+      tags:
+      - developers
+      summary: Modifica N atributos de la pelicula asociada al ID especificado
+      operationId: actualizarAtributosPelicula
+      parameters:
+      - name: movieId
+        in: path
+        description: El id con el que se identifica la pelicula
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/body_1'
+      responses:
+        200:
+          description: exito
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RequestPatchMovieID'
+        404:
+          description: Ocurrio un error
+          content:
+            application/json:
+              schema:
+                type: string
+                example: ocurrio un error
+components:
+  schemas:
+    RequestDeleteMovieID:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Deleted movie successfully
+        Movies:
+          $ref: '#/components/schemas/MovieItem'
+        request:
+          $ref: '#/components/schemas/request'
+    RequestPatchMovieID:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Updated movie successfully
+        request:
+          $ref: '#/components/schemas/request'
+    RequestMovieID:
+      properties:
+        Movies:
+          $ref: '#/components/schemas/MovieItem'
+        request:
+          $ref: '#/components/schemas/request'
+    RequestGet:
+      type: object
+      properties:
+        id:
+          type: string
+          example: "32"
+        Movies:
+          $ref: '#/components/schemas/Movies'
+        request:
+          $ref: '#/components/schemas/request'
+    RequestPost:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Created movie successfully
+        Movies:
+          $ref: '#/components/schemas/MovieItem'
+        request:
+          $ref: '#/components/schemas/request'
+    MovieItem:
+      required:
+      - id
+      - publication
+      - release
+      - reviewer
+      - score
+      - title
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          example: d290f1ee-6c54-4b01-90e6-d701748f0851
+        title:
+          type: string
+          example: Suicide Squad
+        release:
+          type: integer
+          example: 2016
+        reviewer:
+          type: string
+          example: Cristian Morales
+        score:
+          type: integer
+        publication:
+          type: string
+          example: The Daily Reviewer
+    request:
+      properties:
+        tipo:
+          type: string
+          example: GET
+        url:
+          type: string
+          example: http://localhost:8080/movies/
+    Movies:
+      type: array
+      items:
+        $ref: '#/components/schemas/MovieItem'
+    body:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        release:
+          type: integer
+        reviewer:
+          type: string
+        score:
+          type: integer
+        publication:
+          type: string
+    body_1:
+      type: object
+      properties:
+        id:
+          type: string
+        title:
+          type: string
+        release:
+          type: integer
+        reviewer:
+          type: string
+        score:
+          type: integer
+        publication:
+          type: string
