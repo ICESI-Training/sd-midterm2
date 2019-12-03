@@ -5,14 +5,14 @@ const { expect } = chai
 
 describe('GET | success', () => {
   it('success', async () => {
-    const response = await agent.get('http://localhost:8080/movies/')
+    const response = await agent.get('http://localhost:8082/movies/')
     expect(response.status).to.equal(statusCode.OK)
   })
 })
 
 describe('GET | not found', () => {
   it('not found', async () => {
-    const response = await agent.get('http://localhost:8080/movies/')
+    const response = await agent.get('http://localhost:8082/movies/')
     if (response.body.count.length === 0) {
       expect(response.status).to.equal(statusCode.NOT_FOUND)
     }
@@ -21,14 +21,14 @@ describe('GET | not found', () => {
 
 describe('GET with ID | success', async () => {
   it('success', async () => {
-    const response = await agent.get('http://localhost:8080/movies/5dcf2e450b0afa342c1d8fa6')
+    const response = await agent.get('http://localhost:8082/movies/5dcf2e450b0afa342c1d8fa6')
     expect(response.status).to.equal(statusCode.OK)
   })
 })
 
 describe('GET with ID | error', async () => {
   it('error', async () => {
-    await agent.get('http://localhost:8080/movies/5dcf2e450b0afa342').then().catch(
+    await agent.get('http://localhost:8082/movies/5dcf2e450b0afa342').then().catch(
       (response) => {
         expect(response.status).to.equal(statusCode.INTERNAL_SERVER_ERROR)
       }
@@ -46,7 +46,7 @@ describe('POST | success', () => {
       publication: 'ComicBookHero.com'
     }
 
-    const response = await agent.post('http://localhost:8080/movies/').send(query)
+    const response = await agent.post('http://localhost:8082/movies/').send(query)
     expect(response.status).to.equal(statusCode.CREATED)
   })
 })
@@ -61,7 +61,7 @@ describe('POST | error', () => {
       publication: 'ComicBookHero.com'
     }
 
-    await agent.post('http://localhost:8080/movies/5dcf2e450b0afa342c1d8fa6').send(query).then().catch(
+    await agent.post('http://localhost:8082/movies/5dcf2e450b0afa342c1d8fa6').send(query).then().catch(
       (response) => {
         expect(response.status).to.equal(statusCode.NOT_FOUND)
       }
@@ -75,7 +75,7 @@ describe('PATCH | success', () => {
       { propName: 'title', value: 'IT' }
     ]
 
-    const response = await agent.patch('http://localhost:8080/movies/5dcf2e450b0afa342c1d8fa6').send(query)
+    const response = await agent.patch('http://localhost:8082/movies/5dcf2e450b0afa342c1d8fa6').send(query)
     expect(response.status).to.equal(statusCode.OK)
   })
 })
@@ -87,7 +87,7 @@ describe('PATCH | error', () => {
       value: 'IT'
     }
 
-    await agent.patch('http://localhost:8080/movies/5dcf2e450b0afa342c1d8fa6').send(query).then().catch(
+    await agent.patch('http://localhost:8082/movies/5dcf2e450b0afa342c1d8fa6').send(query).then().catch(
       (response) => {
         expect(response.status).to.equal(statusCode.INTERNAL_SERVER_ERROR)
       }
@@ -97,14 +97,14 @@ describe('PATCH | error', () => {
 
 describe('DELETE | success', () => {
   it('success', async () => {
-    const response = await agent.delete('http://localhost:8080/movies/5dcf300d0b0afa342c1d8fa9')
+    const response = await agent.delete('http://localhost:8082/movies/5dcf300d0b0afa342c1d8fa9')
     expect(response.status).to.equal(statusCode.OK)
   })
 })
 
 describe('DELETE | error', () => {
   it('error', async () => {
-    await agent.delete('http://localhost:8080/movies/5dcf300d0b0a').then().catch(
+    await agent.delete('http://localhost:8082/movies/5dcf300d0b0a').then().catch(
       (response) => {
         expect(response.status).to.equal(statusCode.INTERNAL_SERVER_ERROR)
       }

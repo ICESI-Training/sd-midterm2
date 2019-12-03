@@ -4,8 +4,10 @@ const morgan = require('morgan')
 const bodyParser = require('body-parser')
 // Database: Mongo
 const mongoose = require('mongoose')
+// .env
+require('dotenv').config()
 // Try to change PASSWORD to process.env.MONGO_ATLAS_PW (EN: variable de entorno)
-mongoose.connect('mongodb+srv://PASSWORD@clusterparcial2-vrxdh.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true }).then(() => {
+mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@clusterparcial2-vrxdh.mongodb.net/test?retryWrites=true&w=majority`, { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true, useUnifiedTopology: true }).then(() => {
   console.log('connection to database establish')
 }).catch(err => {
   console.log(err)
